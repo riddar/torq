@@ -12,5 +12,7 @@ namespace Torq.Models.Objects
 		[MaxLength(50)]
 		public string SalaryType { get; set; }
 		public int Amount { get; set; }
+
+		public virtual ICollection<Schema> Schemas { get; set; }
 	}
 }

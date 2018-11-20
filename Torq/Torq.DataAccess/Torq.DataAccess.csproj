@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AFCEE637-D44D-4F8A-A5B2-DFF14A6AC320}</ProjectGuid>
+    <ProjectGuid>{8A403FE5-1721-4C58-9DF0-4C30BB9FD784}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Torq.Models</RootNamespace>
-    <AssemblyName>Torq.Models</AssemblyName>
+    <RootNamespace>Torq.DataAccess</RootNamespace>
+    <AssemblyName>Torq.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -48,15 +48,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Objects\Employee.cs" />
-    <Compile Include="Objects\Role.cs" />
-    <Compile Include="Objects\Salary.cs" />
-    <Compile Include="Objects\Schema.cs" />
+    <Compile Include="Context\TorqDBContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Torq.Models\Torq.Models.csproj">
+      <Project>{AFCEE637-D44D-4F8A-A5B2-DFF14A6AC320}</Project>
+      <Name>Torq.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

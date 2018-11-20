@@ -2,7 +2,7 @@
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Torq.Models.Objects;
 
-namespace Torg.DataAccess.Context
+namespace Torq.DataAccess.Context
 {
 	public class TorqDBContext : DbContext
 	{

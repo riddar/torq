@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Torq.Models.Objects
 {
@@ -11,5 +9,7 @@ namespace Torq.Models.Objects
 		public int Id { get; set; }
 		[MaxLength(50)]
 		public string Title { get; set; }
+
+		public virtual ICollection<Employee> Employees { get; set; }
 	}
 }
