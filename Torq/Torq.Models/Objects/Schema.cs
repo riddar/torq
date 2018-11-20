@@ -14,9 +14,7 @@ namespace Torq.Models.Objects
 		public DateTime StartTime { get; set; }
 		public DateTime EndTime { get; set; }
 
-		[ForeignKey("EmployeeId")]
-		public int EmployeeId { get; set; }
-		[ForeignKey("SalaryId")]
-		public int SalaryId { get; set; }
+		public virtual Employee Employee { get; set; }
+		public virtual Salary Salary { get; set; }
 	}
 }

@@ -6,6 +6,11 @@ namespace Torq.Models.Objects
 {
 	public class Employee
 	{
+		public Employee()
+		{
+			this.Schemas = new HashSet<Schema>();
+		}
+
 		[Key]
 		public int Id { get; set; }
 		[MaxLength(50)]
@@ -13,8 +18,8 @@ namespace Torq.Models.Objects
 		[MaxLength(50)]
 		public string LastName { get; set; }
 		public bool IsOnline { get; set; }
-		[ForeignKey("RoleId")]
-		public int RoleId { get; set; }
+
+		public virtual Role RoleId { get; set; }
 
 		public virtual ICollection<Schema> Schemas { get; set; }
 	}

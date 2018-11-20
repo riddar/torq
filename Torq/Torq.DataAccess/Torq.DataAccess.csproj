@@ -49,6 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\TorqDBContext.cs" />
+    <Compile Include="Migrations\201811201230558_Init.cs" />
+    <Compile Include="Migrations\201811201230558_Init.Designer.cs">
+      <DependentUpon>201811201230558_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,6 +65,11 @@
       <Project>{AFCEE637-D44D-4F8A-A5B2-DFF14A6AC320}</Project>
       <Name>Torq.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811201230558_Init.resx">
+      <DependentUpon>201811201230558_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

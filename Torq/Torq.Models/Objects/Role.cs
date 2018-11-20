@@ -5,6 +5,11 @@ namespace Torq.Models.Objects
 {
 	public class Role
 	{
+		public Role()
+		{
+			this.Employees = new HashSet<Employee>();
+		}
+
 		[Key]
 		public int Id { get; set; }
 		[MaxLength(50)]
