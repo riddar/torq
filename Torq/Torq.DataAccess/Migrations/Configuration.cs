@@ -7,7 +7,7 @@ namespace Torq.DataAccess.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Context.TorqDBContext context)
