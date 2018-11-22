@@ -9,7 +9,7 @@ using Torq.Models.Objects;
 
 namespace Torq.DataService.Repositories
 {
-	public class SchemaService
+	public class SchemaService : IDisposable, ISchemaService
 	{
 		readonly TorqDBContext context = new TorqDBContext();
 

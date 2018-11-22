@@ -12,9 +12,9 @@ namespace Torq.DataAccess.Migrations
 
         protected override void Seed(Context.TorqDBContext context)
         {
-			context.Schemas.AddOrUpdate(r => r.Id,
-				new Schema { Id = 1, Title = "Worker" },
-				new Schema { Id = 2, Title = "Boss" }
+			context.Roles.AddOrUpdate(r => r.Id,
+				new Role { Id = 1, Title = "Worker" },
+				new Role { Id = 2, Title = "Boss" }
 			);
 
 			context.Employees.AddOrUpdate(e => e.Id,
