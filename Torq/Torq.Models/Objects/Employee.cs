@@ -19,7 +19,7 @@ namespace Torq.Models.Objects
 		public string LastName { get; set; }
 		public bool IsOnline { get; set; }
 
-		public virtual Schema RoleId { get; set; }
+		public virtual Role Role { get; set; }
 
 		public virtual ICollection<Schema> Schemas { get; set; }
 	}

@@ -13,7 +13,6 @@ namespace Torq.Models.Objects
 		public bool ClockedIn { get; set; }
 		public DateTime StartTime { get; set; }
 		public DateTime EndTime { get; set; }
-
 		public virtual Employee Employee { get; set; }
 		public virtual Salary Salary { get; set; }
 	}

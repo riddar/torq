@@ -7,7 +7,7 @@ namespace Torq.DataAccess.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Context.TorqDBContext context)
@@ -18,10 +18,10 @@ namespace Torq.DataAccess.Migrations
 			);
 
 			context.Employees.AddOrUpdate(e => e.Id,
-				new Employee { Id=1, FirstName="Anders", LastName="And", IsOnline=true, RoleId=new Schema { Id=1 } },
-				new Employee { Id=2, FirstName="Kalle", LastName="Anka", IsOnline=true, RoleId=new Schema { Id=1 } },
-				new Employee { Id=3, FirstName="Donald", LastName="Duck", IsOnline=true, RoleId = new Schema { Id = 2 } },
-				new Employee { Id=4, FirstName="Akku", LastName="Anka", IsOnline=false, RoleId = new Schema { Id = 1 } }
+				new Employee { Id=1, FirstName="Anders", LastName="And", IsOnline=true, Role=new Role { Id=1 } },
+				new Employee { Id=2, FirstName="Kalle", LastName="Anka", IsOnline=true, Role=new Role { Id=1 } },
+				new Employee { Id=3, FirstName="Donald", LastName="Duck", IsOnline=true, Role = new Role { Id = 2 } },
+				new Employee { Id=4, FirstName="Akku", LastName="Anka", IsOnline=false, Role = new Role { Id = 1 } }
 			);
 
 			context.Salaries.AddOrUpdate(s => s.Id,

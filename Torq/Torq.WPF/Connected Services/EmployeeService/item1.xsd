@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Employee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsOnline" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleId" nillable="true" type="tns:Schema" />
+      <xs:element minOccurs="0" name="Schemas" nillable="true" type="tns:ArrayOfSchema" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="Schema">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClockedIn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Salary" nillable="true" type="tns:Salary" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Schema" nillable="true" type="tns:Schema" />
+  <xs:complexType name="Salary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:int" />
+      <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="SalaryType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Schemas" nillable="true" type="tns:ArrayOfSchema" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Salary" nillable="true" type="tns:Salary" />
+  <xs:complexType name="ArrayOfSchema">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schema" nillable="true" type="tns:Schema" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchema" nillable="true" type="tns:ArrayOfSchema" />
+  <xs:complexType name="ArrayOfEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
+</xs:schema>
