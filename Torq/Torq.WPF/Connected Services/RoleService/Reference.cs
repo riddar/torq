@@ -112,7 +112,7 @@ namespace Torq.WPF.RoleService {
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Torq.WPF.RoleService.Schema RoleIdField;
+        private Torq.WPF.RoleService.Role RoleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Torq.WPF.RoleService.Schema[] SchemasField;
@@ -180,14 +180,14 @@ namespace Torq.WPF.RoleService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Torq.WPF.RoleService.Schema RoleId {
+        public Torq.WPF.RoleService.Role Role {
             get {
-                return this.RoleIdField;
+                return this.RoleField;
             }
             set {
-                if ((object.ReferenceEquals(this.RoleIdField, value) != true)) {
-                    this.RoleIdField = value;
-                    this.RaisePropertyChanged("RoleId");
+                if ((object.ReferenceEquals(this.RoleField, value) != true)) {
+                    this.RoleField = value;
+                    this.RaisePropertyChanged("Role");
                 }
             }
         }

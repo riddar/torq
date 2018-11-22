@@ -20,11 +20,17 @@
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IsOnline" type="xs:boolean" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RoleId" nillable="true" type="tns:Schema" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="tns:Role" />
       <xs:element minOccurs="0" name="Schemas" nillable="true" type="tns:ArrayOfSchema" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="ArrayOfSchema">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schema" nillable="true" type="tns:Schema" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchema" nillable="true" type="tns:ArrayOfSchema" />
   <xs:complexType name="Schema">
     <xs:sequence>
       <xs:element minOccurs="0" name="ClockedIn" type="xs:boolean" />
@@ -46,12 +52,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Salary" nillable="true" type="tns:Salary" />
-  <xs:complexType name="ArrayOfSchema">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schema" nillable="true" type="tns:Schema" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfSchema" nillable="true" type="tns:ArrayOfSchema" />
   <xs:complexType name="ArrayOfRole">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role" />

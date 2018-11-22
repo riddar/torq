@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using Torq.DataAccess.Context;
@@ -9,6 +10,7 @@ using Torq.Models.Objects;
 
 namespace Torq.DataService
 {
+	[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
 	public class RoleService : IDisposable, IRoleService
 	{
 		readonly TorqDBContext context = new TorqDBContext();

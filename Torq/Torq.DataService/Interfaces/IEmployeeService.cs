@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
-using System.Threading.Tasks;
 using Torq.Models.Objects;
 
 namespace Torq.DataService

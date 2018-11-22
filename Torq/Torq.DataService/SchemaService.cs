@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
+using System.ServiceModel;
 using System.Threading.Tasks;
 using Torq.DataAccess.Context;
 using Torq.Models.Objects;
 
 namespace Torq.DataService
 {
+	[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
 	public class SchemaService : IDisposable, ISchemaService
 	{
 		readonly TorqDBContext context = new TorqDBContext();

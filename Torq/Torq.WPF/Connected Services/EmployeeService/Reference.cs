@@ -35,7 +35,7 @@ namespace Torq.WPF.EmployeeService {
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Torq.WPF.EmployeeService.Schema RoleIdField;
+        private Torq.WPF.EmployeeService.Role RoleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Torq.WPF.EmployeeService.Schema[] SchemasField;
@@ -103,14 +103,14 @@ namespace Torq.WPF.EmployeeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Torq.WPF.EmployeeService.Schema RoleId {
+        public Torq.WPF.EmployeeService.Role Role {
             get {
-                return this.RoleIdField;
+                return this.RoleField;
             }
             set {
-                if ((object.ReferenceEquals(this.RoleIdField, value) != true)) {
-                    this.RoleIdField = value;
-                    this.RaisePropertyChanged("RoleId");
+                if ((object.ReferenceEquals(this.RoleField, value) != true)) {
+                    this.RoleField = value;
+                    this.RaisePropertyChanged("Role");
                 }
             }
         }
@@ -124,6 +124,83 @@ namespace Torq.WPF.EmployeeService {
                 if ((object.ReferenceEquals(this.SchemasField, value) != true)) {
                     this.SchemasField = value;
                     this.RaisePropertyChanged("Schemas");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Role", Namespace="http://schemas.datacontract.org/2004/07/Torq.Models.Objects")]
+    [System.SerializableAttribute()]
+    public partial class Role : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Torq.WPF.EmployeeService.Employee[] EmployeesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Torq.WPF.EmployeeService.Employee[] Employees {
+            get {
+                return this.EmployeesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeesField, value) != true)) {
+                    this.EmployeesField = value;
+                    this.RaisePropertyChanged("Employees");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
                 }
             }
         }
@@ -376,23 +453,17 @@ namespace Torq.WPF.EmployeeService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EmployeeService.IEmployeeService")]
     public interface IEmployeeService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/CreateEmployeeResponse")]
-        Torq.WPF.EmployeeService.Employee CreateEmployee(Torq.WPF.EmployeeService.Employee employee);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployees", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeesResponse")]
+        Torq.WPF.EmployeeService.Employee[] GetEmployees();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/CreateEmployeeResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.EmployeeService.Employee> CreateEmployeeAsync(Torq.WPF.EmployeeService.Employee employee);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployees", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeesResponse")]
+        System.Threading.Tasks.Task<Torq.WPF.EmployeeService.Employee[]> GetEmployeesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeById", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeByIdResponse")]
         Torq.WPF.EmployeeService.Employee GetEmployeeById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeById", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeByIdResponse")]
         System.Threading.Tasks.Task<Torq.WPF.EmployeeService.Employee> GetEmployeeByIdAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployees", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeesResponse")]
-        Torq.WPF.EmployeeService.Employee[] GetEmployees();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployees", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeesResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.EmployeeService.Employee[]> GetEmployeesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/UpdateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/UpdateEmployeeResponse")]
         Torq.WPF.EmployeeService.Employee UpdateEmployee(Torq.WPF.EmployeeService.Employee employee);
@@ -405,6 +476,12 @@ namespace Torq.WPF.EmployeeService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/RemoveEmployee", ReplyAction="http://tempuri.org/IEmployeeService/RemoveEmployeeResponse")]
         System.Threading.Tasks.Task RemoveEmployeeAsync(Torq.WPF.EmployeeService.Employee employee);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/CreateEmployeeResponse")]
+        Torq.WPF.EmployeeService.Employee CreateEmployee(Torq.WPF.EmployeeService.Employee employee);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/CreateEmployeeResponse")]
+        System.Threading.Tasks.Task<Torq.WPF.EmployeeService.Employee> CreateEmployeeAsync(Torq.WPF.EmployeeService.Employee employee);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -434,12 +511,12 @@ namespace Torq.WPF.EmployeeService {
                 base(binding, remoteAddress) {
         }
         
-        public Torq.WPF.EmployeeService.Employee CreateEmployee(Torq.WPF.EmployeeService.Employee employee) {
-            return base.Channel.CreateEmployee(employee);
+        public Torq.WPF.EmployeeService.Employee[] GetEmployees() {
+            return base.Channel.GetEmployees();
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.EmployeeService.Employee> CreateEmployeeAsync(Torq.WPF.EmployeeService.Employee employee) {
-            return base.Channel.CreateEmployeeAsync(employee);
+        public System.Threading.Tasks.Task<Torq.WPF.EmployeeService.Employee[]> GetEmployeesAsync() {
+            return base.Channel.GetEmployeesAsync();
         }
         
         public Torq.WPF.EmployeeService.Employee GetEmployeeById(int id) {
@@ -448,14 +525,6 @@ namespace Torq.WPF.EmployeeService {
         
         public System.Threading.Tasks.Task<Torq.WPF.EmployeeService.Employee> GetEmployeeByIdAsync(int id) {
             return base.Channel.GetEmployeeByIdAsync(id);
-        }
-        
-        public Torq.WPF.EmployeeService.Employee[] GetEmployees() {
-            return base.Channel.GetEmployees();
-        }
-        
-        public System.Threading.Tasks.Task<Torq.WPF.EmployeeService.Employee[]> GetEmployeesAsync() {
-            return base.Channel.GetEmployeesAsync();
         }
         
         public Torq.WPF.EmployeeService.Employee UpdateEmployee(Torq.WPF.EmployeeService.Employee employee) {
@@ -472,6 +541,14 @@ namespace Torq.WPF.EmployeeService {
         
         public System.Threading.Tasks.Task RemoveEmployeeAsync(Torq.WPF.EmployeeService.Employee employee) {
             return base.Channel.RemoveEmployeeAsync(employee);
+        }
+        
+        public Torq.WPF.EmployeeService.Employee CreateEmployee(Torq.WPF.EmployeeService.Employee employee) {
+            return base.Channel.CreateEmployee(employee);
+        }
+        
+        public System.Threading.Tasks.Task<Torq.WPF.EmployeeService.Employee> CreateEmployeeAsync(Torq.WPF.EmployeeService.Employee employee) {
+            return base.Channel.CreateEmployeeAsync(employee);
         }
     }
 }

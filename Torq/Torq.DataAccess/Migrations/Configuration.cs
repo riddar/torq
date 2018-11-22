@@ -1,16 +1,17 @@
 namespace Torq.DataAccess.Migrations
 {
 	using System.Data.Entity.Migrations;
+	using Torq.DataAccess.Context;
 	using Torq.Models.Objects;
 
-	internal sealed class Configuration : DbMigrationsConfiguration<Context.TorqDBContext>
+	internal sealed class Configuration : DbMigrationsConfiguration<TorqDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Context.TorqDBContext context)
+        protected override void Seed(TorqDBContext context)
         {
 			context.Roles.AddOrUpdate(r => r.Id,
 				new Role { Id = 1, Title = "Worker" },

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace Torq.Models.Objects
 {
+	[DataContract]
 	public class Employee
 	{
 		public Employee()
@@ -12,15 +13,17 @@ namespace Torq.Models.Objects
 		}
 
 		[Key]
+		[DataMember]
 		public int Id { get; set; }
-		[MaxLength(50)]
+		[DataMember]
 		public string FirstName { get; set; }
-		[MaxLength(50)]
+		[DataMember]
 		public string LastName { get; set; }
+		[DataMember]
 		public bool IsOnline { get; set; }
-
-		public virtual Role Role { get; set; }
-
-		public virtual ICollection<Schema> Schemas { get; set; }
+		[DataMember]
+		public Role Role { get; set; }
+		[DataMember]
+		public ICollection<Schema> Schemas { get; set; }
 	}
 }

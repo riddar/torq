@@ -1,20 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using System.Runtime.Serialization;
 
 namespace Torq.Models.Objects
 {
+	[DataContract]
 	public class Schema
 	{
 		[Key]
+		[DataMember]
 		public int Id { get; set; }
+		[DataMember]
 		public bool ClockedIn { get; set; }
+		[DataMember]
 		public DateTime StartTime { get; set; }
+		[DataMember]
 		public DateTime EndTime { get; set; }
-
-		public virtual Employee Employee { get; set; }
-		public virtual Salary Salary { get; set; }
+		[DataMember]
+		public Employee Employee { get; set; }
+		[DataMember]
+		public Salary Salary { get; set; }
 	}
 }

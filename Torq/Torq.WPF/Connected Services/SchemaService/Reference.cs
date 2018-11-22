@@ -160,7 +160,7 @@ namespace Torq.WPF.SchemaService {
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Torq.WPF.SchemaService.Schema RoleIdField;
+        private Torq.WPF.SchemaService.Role RoleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Torq.WPF.SchemaService.Schema[] SchemasField;
@@ -228,14 +228,14 @@ namespace Torq.WPF.SchemaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Torq.WPF.SchemaService.Schema RoleId {
+        public Torq.WPF.SchemaService.Role Role {
             get {
-                return this.RoleIdField;
+                return this.RoleField;
             }
             set {
-                if ((object.ReferenceEquals(this.RoleIdField, value) != true)) {
-                    this.RoleIdField = value;
-                    this.RaisePropertyChanged("RoleId");
+                if ((object.ReferenceEquals(this.RoleField, value) != true)) {
+                    this.RoleField = value;
+                    this.RaisePropertyChanged("Role");
                 }
             }
         }
@@ -358,6 +358,83 @@ namespace Torq.WPF.SchemaService {
                 if ((object.ReferenceEquals(this.SchemasField, value) != true)) {
                     this.SchemasField = value;
                     this.RaisePropertyChanged("Schemas");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Role", Namespace="http://schemas.datacontract.org/2004/07/Torq.Models.Objects")]
+    [System.SerializableAttribute()]
+    public partial class Role : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Torq.WPF.SchemaService.Employee[] EmployeesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Torq.WPF.SchemaService.Employee[] Employees {
+            get {
+                return this.EmployeesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeesField, value) != true)) {
+                    this.EmployeesField = value;
+                    this.RaisePropertyChanged("Employees");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
                 }
             }
         }

@@ -12,8 +12,8 @@ namespace Torq.DataAccess.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(maxLength: 50),
-                        LastName = c.String(maxLength: 50),
+                        FirstName = c.String(),
+                        LastName = c.String(),
                         IsOnline = c.Boolean(nullable: false),
                         Role_Id = c.Int(),
                     })
@@ -26,7 +26,7 @@ namespace Torq.DataAccess.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Title = c.String(maxLength: 50),
+                        Title = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -52,7 +52,7 @@ namespace Torq.DataAccess.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        SalaryType = c.String(maxLength: 50),
+                        SalaryType = c.String(),
                         Amount = c.Int(nullable: false),
                         Employee_Id = c.Int(),
                     })
