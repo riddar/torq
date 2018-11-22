@@ -5,15 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Torq.WPF"
         mc:Ignorable="d"
-        Title="TORQ" Height="450" Width="800">
+        Title="TORQ" Height="554.343" Width="707.521" MinWidth="800" MinHeight="500" HorizontalContentAlignment="Center">
     <Grid>
-        <TabControl>
-            <TabItem Header="Calendar">
-                <Label Content="This is the calendar"/>
+        <TabControl x:Name="MainWindow_TabControl" Margin="0,0,0,50">
+            <TabItem x:Name="TabItem_Calendar" Header="Calendar">
+                <Grid>
+                    <Button Content="Previus Month" Width="100" Height="25" Margin="10,10,678,412"/>
+                    <Button Content="Next Month" Width="100" Height="25" Margin="678,10,10,412"/>
+                    <Label Content="Month" HorizontalAlignment="Center" Margin="115,9,115,413" VerticalAlignment="Center" Height="25" Width="558" HorizontalContentAlignment="Center"/>
+                    <DataGrid HorizontalAlignment="Left" Height="397" Margin="10,40,0,0" VerticalAlignment="Top" Width="768"/>
+
+                </Grid>
             </TabItem>
-            <TabItem Header="Salary">
-                <Label Content="This is the Salary"/>
+            <TabItem x:Name="TabItem_Salary" Header="Salary">
+                <Grid>
+                    <Button Content="Button" Margin="10,10,678,408" Width="100" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="100" MinHeight="25"/>
+                    <Button Content="Button" Margin="678,10,10,408"  Width="100" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <Label Content="Month" HorizontalAlignment="Center" Margin="115,10,115,408" VerticalAlignment="Center" Height="25" Width="558" HorizontalContentAlignment="Center"/>
+                    <DataGrid HorizontalAlignment="Left" Height="393" Margin="10,40,0,0" VerticalAlignment="Top" Width="768"/>
+                </Grid>
             </TabItem>
         </TabControl>
+        <StatusBar Margin="0,480,0,0">
+            <Label Content="Logged in user:"/>
+            <Label Content="Donald Duck"/>
+            <Button Content="Log Out" Width="75"/>
+            
+
+        </StatusBar>
     </Grid>
 </Window>
