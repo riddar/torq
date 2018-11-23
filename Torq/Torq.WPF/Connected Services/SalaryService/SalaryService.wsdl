@@ -7,11 +7,11 @@
       <xsd:import schemaLocation="http://localhost:2115/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ISalaryService_CreateSchema_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateSchema" />
+  <wsdl:message name="ISalaryService_CreateSalary_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSalary" />
   </wsdl:message>
-  <wsdl:message name="ISalaryService_CreateSchema_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateSchemaResponse" />
+  <wsdl:message name="ISalaryService_CreateSalary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSalaryResponse" />
   </wsdl:message>
   <wsdl:message name="ISalaryService_GetSalaries_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSalaries" />
@@ -38,9 +38,9 @@
     <wsdl:part name="parameters" element="tns:RemoveSalaryResponse" />
   </wsdl:message>
   <wsdl:portType name="ISalaryService">
-    <wsdl:operation name="CreateSchema">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalaryService/CreateSchema" message="tns:ISalaryService_CreateSchema_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalaryService/CreateSchemaResponse" message="tns:ISalaryService_CreateSchema_OutputMessage" />
+    <wsdl:operation name="CreateSalary">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISalaryService/CreateSalary" message="tns:ISalaryService_CreateSalary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISalaryService/CreateSalaryResponse" message="tns:ISalaryService_CreateSalary_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetSalaries">
       <wsdl:input wsaw:Action="http://tempuri.org/ISalaryService/GetSalaries" message="tns:ISalaryService_GetSalaries_InputMessage" />
@@ -61,8 +61,8 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISalaryService" type="tns:ISalaryService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="CreateSchema">
-      <soap:operation soapAction="http://tempuri.org/ISalaryService/CreateSchema" style="document" />
+    <wsdl:operation name="CreateSalary">
+      <soap:operation soapAction="http://tempuri.org/ISalaryService/CreateSalary" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

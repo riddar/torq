@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:2115/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" />
-  <xs:element name="CreateSchema">
+  <xs:element name="CreateSalary">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" minOccurs="0" name="salary" nillable="true" type="q1:Salary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CreateSchemaResponse">
+  <xs:element name="CreateSalaryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" minOccurs="0" name="CreateSchemaResult" nillable="true" type="q2:Salary" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" minOccurs="0" name="CreateSalaryResult" nillable="true" type="q2:Salary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
