@@ -6,7 +6,7 @@ namespace Torq.DataAccess.Context
 {
 	public class TorqDBContext : DbContext
 	{
-		public TorqDBContext() : base("Torq") { }
+		public TorqDBContext() : base("TorqDB") { }
 		public DbSet<Employee> Employees { get; set; }
 		public DbSet<Role> Roles { get; set; }
 		public DbSet<Salary> Salaries { get; set; }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Torq.WPF.EmployeeService;
 
 namespace Torq.WPF
 {
@@ -21,7 +22,11 @@ namespace Torq.WPF
     {
         public LogInWindow()
         {
-            InitializeComponent();
+			using (var employeeService = new EmployeeServiceClient())
+			{
+				employeeService.GetEmployees();
+			}
+				InitializeComponent();
         }
     }
 }

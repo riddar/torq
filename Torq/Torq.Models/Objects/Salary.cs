@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace Torq.Models.Objects
 {
-	public class Salary
+	[DataContract]
+	public partial class Salary
 	{
-		public Salary() => this.Schemas = new HashSet<Schema>();
-
 		[Key]
+		[DataMember]
 		public int Id { get; set; }
-		[MaxLength(50)]
+		[DataMember]
 		public string SalaryType { get; set; }
+		[DataMember]
 		public int Amount { get; set; }
-
+		[DataMember]
 		public virtual Employee Employee { get; set; }
-
-		public virtual ICollection<Schema> Schemas { get; set; }
 	}
 }

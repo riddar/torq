@@ -1,20 +1,15 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace Torq.Models.Objects
 {
-	public class Role
+	[DataContract]
+	public partial class Role
 	{
-		public Role()
-		{
-			this.Employees = new HashSet<Employee>();
-		}
-
 		[Key]
+		[DataMember]
 		public int Id { get; set; }
-		[MaxLength(50)]
+		[DataMember]
 		public string Title { get; set; }
-
-		public virtual ICollection<Employee> Employees { get; set; }
 	}
 }
