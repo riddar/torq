@@ -15,7 +15,7 @@ namespace Torq.DataService
 	{
 		readonly TorqDBContext context = new TorqDBContext();
 
-		public RoleService() { }
+		public RoleService() { context.Configuration.ProxyCreationEnabled = false; }
 		public void Dispose() => context.Dispose();
 
 		public async Task<Role> CreateRole(Role role)

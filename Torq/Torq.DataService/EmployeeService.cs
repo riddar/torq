@@ -12,8 +12,8 @@ namespace Torq.DataService
 	public class EmployeeService : IEmployeeService, IDisposable
 	{
 		readonly TorqDBContext context = new TorqDBContext();
-
-		public EmployeeService() { }
+		
+		public EmployeeService() { context.Configuration.ProxyCreationEnabled = false;  }
 		public void Dispose() => context.Dispose();
 
 		public Employee CreateEmployee(Employee employee)
@@ -30,7 +30,7 @@ namespace Torq.DataService
 
 		public List<Employee> GetEmployees()
 		{
-			return context.Employees.ToList();
+			return context.Employees.Include(e => e.Role).ToList();
 		}
 
 		public void RemoveEmployee(Employee employee)

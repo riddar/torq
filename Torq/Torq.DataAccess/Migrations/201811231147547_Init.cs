@@ -31,23 +31,6 @@ namespace Torq.DataAccess.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Schema",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        ClockedIn = c.Boolean(nullable: false),
-                        StartTime = c.DateTime(nullable: false),
-                        EndTime = c.DateTime(nullable: false),
-                        Employee_Id = c.Int(),
-                        Salary_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Employee", t => t.Employee_Id)
-                .ForeignKey("dbo.Salary", t => t.Salary_Id)
-                .Index(t => t.Employee_Id)
-                .Index(t => t.Salary_Id);
-            
-            CreateTable(
                 "dbo.Salary",
                 c => new
                     {
@@ -60,20 +43,32 @@ namespace Torq.DataAccess.Migrations
                 .ForeignKey("dbo.Employee", t => t.Employee_Id)
                 .Index(t => t.Employee_Id);
             
+            CreateTable(
+                "dbo.Schema",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ClockedIn = c.Boolean(nullable: false),
+                        StartTime = c.DateTime(nullable: false),
+                        EndTime = c.DateTime(nullable: false),
+                        Salary_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Salary", t => t.Salary_Id)
+                .Index(t => t.Salary_Id);
+            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Schema", "Salary_Id", "dbo.Salary");
             DropForeignKey("dbo.Salary", "Employee_Id", "dbo.Employee");
-            DropForeignKey("dbo.Schema", "Employee_Id", "dbo.Employee");
             DropForeignKey("dbo.Employee", "Role_Id", "dbo.Role");
-            DropIndex("dbo.Salary", new[] { "Employee_Id" });
             DropIndex("dbo.Schema", new[] { "Salary_Id" });
-            DropIndex("dbo.Schema", new[] { "Employee_Id" });
+            DropIndex("dbo.Salary", new[] { "Employee_Id" });
             DropIndex("dbo.Employee", new[] { "Role_Id" });
-            DropTable("dbo.Salary");
             DropTable("dbo.Schema");
+            DropTable("dbo.Salary");
             DropTable("dbo.Role");
             DropTable("dbo.Employee");
         }

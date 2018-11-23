@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace Torq.Models.Objects
 {
 	[DataContract]
-	public class Salary
+	public partial class Salary
 	{
-		public Salary() => this.Schemas = new HashSet<Schema>();
-
 		[Key]
 		[DataMember]
 		public int Id { get; set; }
@@ -19,8 +14,6 @@ namespace Torq.Models.Objects
 		[DataMember]
 		public int Amount { get; set; }
 		[DataMember]
-		public Employee Employee { get; set; }
-		[DataMember]
-		public ICollection<Schema> Schemas { get; set; }
+		public virtual Employee Employee { get; set; }
 	}
 }

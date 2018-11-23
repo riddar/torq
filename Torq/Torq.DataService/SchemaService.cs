@@ -13,7 +13,7 @@ namespace Torq.DataService
 	{
 		readonly TorqDBContext context = new TorqDBContext();
 
-		public SchemaService() { }
+		public SchemaService() { context.Configuration.ProxyCreationEnabled = false; }
 		public void Dispose() => context.Dispose();
 
 		public async Task<Schema> CreateSchema(Schema schema)

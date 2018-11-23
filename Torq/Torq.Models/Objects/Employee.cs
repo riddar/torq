@@ -1,17 +1,12 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
 namespace Torq.Models.Objects
 {
 	[DataContract]
-	public class Employee
+	public partial class Employee
 	{
-		public Employee()
-		{
-			this.Schemas = new HashSet<Schema>();
-		}
-
 		[Key]
 		[DataMember]
 		public int Id { get; set; }
@@ -22,8 +17,6 @@ namespace Torq.Models.Objects
 		[DataMember]
 		public bool IsOnline { get; set; }
 		[DataMember]
-		public Role Role { get; set; }
-		[DataMember]
-		public ICollection<Schema> Schemas { get; set; }
+		public virtual Role Role { get; set; }
 	}
 }

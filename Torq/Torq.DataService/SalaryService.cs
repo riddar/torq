@@ -13,7 +13,7 @@ namespace Torq.DataService
 	{
 		readonly TorqDBContext context = new TorqDBContext();
 
-		public SalaryService() { }
+		public SalaryService() { context.Configuration.ProxyCreationEnabled = false; }
 		public void Dispose() => context.Dispose();
 
 		public async Task<Salary> CreateSchema(Salary salary)

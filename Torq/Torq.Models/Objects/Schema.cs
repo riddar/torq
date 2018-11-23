@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Torq.Models.Objects
 {
 	[DataContract]
-	public class Schema
+	public partial class Schema
 	{
 		[Key]
 		[DataMember]
@@ -17,8 +17,6 @@ namespace Torq.Models.Objects
 		[DataMember]
 		public DateTime EndTime { get; set; }
 		[DataMember]
-		public Employee Employee { get; set; }
-		[DataMember]
-		public Salary Salary { get; set; }
+		public virtual Salary Salary { get; set; }
 	}
 }
