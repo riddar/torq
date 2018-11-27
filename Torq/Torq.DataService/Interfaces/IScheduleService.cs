@@ -6,17 +6,17 @@ using Torq.Models.Objects;
 namespace Torq.DataService
 {
 	[ServiceContract]
-	public interface ISchemaService
+	public interface IScheduleService
 	{
 		[OperationContract]
-		Task<Schema> CreateSchema(Schema schema);
+		Schedule CreateSchedule(Schedule schedule);
 		[OperationContract]
-		Task<Schema> GetSchemaByIdAsync(int id);
+		Schedule GetScheduleById(int id);
 		[OperationContract]
-		Task<List<Schema>> GetSchemas();
+		IEnumerable<Schedule> GetSchedules();
 		[OperationContract]
-		void RemoveSchema(Schema schema);
+		void RemoveSchedule(Schedule schedule);
 		[OperationContract]
-		Task<Schema> UpdateRole(Schema schema);
+		Schedule UpdateSchedule(Schedule schedule);
 	}
 }

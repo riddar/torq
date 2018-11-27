@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Torq.WPF.SchemaService {
+namespace Torq.WPF.ScheduleService {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Schema", Namespace="http://schemas.datacontract.org/2004/07/Torq.Models.Objects")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Schedule", Namespace="http://schemas.datacontract.org/2004/07/Torq.Models.Objects")]
     [System.SerializableAttribute()]
-    public partial class Schema : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Schedule : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -26,7 +26,7 @@ namespace Torq.WPF.SchemaService {
         private bool ClockedInField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Torq.WPF.SchemaService.Employee EmployeeField;
+        private Torq.WPF.ScheduleService.Employee EmployeeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime EndTimeField;
@@ -35,7 +35,7 @@ namespace Torq.WPF.SchemaService {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Torq.WPF.SchemaService.Salary SalaryField;
+        private Torq.WPF.ScheduleService.Salary SalaryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartTimeField;
@@ -64,7 +64,7 @@ namespace Torq.WPF.SchemaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Torq.WPF.SchemaService.Employee Employee {
+        public Torq.WPF.ScheduleService.Employee Employee {
             get {
                 return this.EmployeeField;
             }
@@ -103,7 +103,7 @@ namespace Torq.WPF.SchemaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Torq.WPF.SchemaService.Salary Salary {
+        public Torq.WPF.ScheduleService.Salary Salary {
             get {
                 return this.SalaryField;
             }
@@ -160,10 +160,7 @@ namespace Torq.WPF.SchemaService {
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Torq.WPF.SchemaService.Role RoleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Torq.WPF.SchemaService.Schema[] SchemasField;
+        private Torq.WPF.ScheduleService.Role RoleField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -228,7 +225,7 @@ namespace Torq.WPF.SchemaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Torq.WPF.SchemaService.Role Role {
+        public Torq.WPF.ScheduleService.Role Role {
             get {
                 return this.RoleField;
             }
@@ -236,19 +233,6 @@ namespace Torq.WPF.SchemaService {
                 if ((object.ReferenceEquals(this.RoleField, value) != true)) {
                     this.RoleField = value;
                     this.RaisePropertyChanged("Role");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Torq.WPF.SchemaService.Schema[] Schemas {
-            get {
-                return this.SchemasField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SchemasField, value) != true)) {
-                    this.SchemasField = value;
-                    this.RaisePropertyChanged("Schemas");
                 }
             }
         }
@@ -276,16 +260,10 @@ namespace Torq.WPF.SchemaService {
         private int AmountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Torq.WPF.SchemaService.Employee EmployeeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SalaryTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Torq.WPF.SchemaService.Schema[] SchemasField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -306,19 +284,6 @@ namespace Torq.WPF.SchemaService {
                 if ((this.AmountField.Equals(value) != true)) {
                     this.AmountField = value;
                     this.RaisePropertyChanged("Amount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Torq.WPF.SchemaService.Employee Employee {
-            get {
-                return this.EmployeeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmployeeField, value) != true)) {
-                    this.EmployeeField = value;
-                    this.RaisePropertyChanged("Employee");
                 }
             }
         }
@@ -349,19 +314,6 @@ namespace Torq.WPF.SchemaService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Torq.WPF.SchemaService.Schema[] Schemas {
-            get {
-                return this.SchemasField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SchemasField, value) != true)) {
-                    this.SchemasField = value;
-                    this.RaisePropertyChanged("Schemas");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -382,9 +334,6 @@ namespace Torq.WPF.SchemaService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Torq.WPF.SchemaService.Employee[] EmployeesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -397,19 +346,6 @@ namespace Torq.WPF.SchemaService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Torq.WPF.SchemaService.Employee[] Employees {
-            get {
-                return this.EmployeesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmployeesField, value) != true)) {
-                    this.EmployeesField = value;
-                    this.RaisePropertyChanged("Employees");
-                }
             }
         }
         
@@ -450,105 +386,105 @@ namespace Torq.WPF.SchemaService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SchemaService.ISchemaService")]
-    public interface ISchemaService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ScheduleService.IScheduleService")]
+    public interface IScheduleService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchemaService/CreateSchema", ReplyAction="http://tempuri.org/ISchemaService/CreateSchemaResponse")]
-        Torq.WPF.SchemaService.Schema CreateSchema(Torq.WPF.SchemaService.Schema schema);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/CreateSchedule", ReplyAction="http://tempuri.org/IScheduleService/CreateScheduleResponse")]
+        Torq.WPF.ScheduleService.Schedule CreateSchedule(Torq.WPF.ScheduleService.Schedule schedule);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchemaService/CreateSchema", ReplyAction="http://tempuri.org/ISchemaService/CreateSchemaResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.SchemaService.Schema> CreateSchemaAsync(Torq.WPF.SchemaService.Schema schema);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/CreateSchedule", ReplyAction="http://tempuri.org/IScheduleService/CreateScheduleResponse")]
+        System.Threading.Tasks.Task<Torq.WPF.ScheduleService.Schedule> CreateScheduleAsync(Torq.WPF.ScheduleService.Schedule schedule);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchemaService/GetSchemaById", ReplyAction="http://tempuri.org/ISchemaService/GetSchemaByIdResponse")]
-        Torq.WPF.SchemaService.Schema GetSchemaById(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetScheduleById", ReplyAction="http://tempuri.org/IScheduleService/GetScheduleByIdResponse")]
+        Torq.WPF.ScheduleService.Schedule GetScheduleById(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchemaService/GetSchemaById", ReplyAction="http://tempuri.org/ISchemaService/GetSchemaByIdResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.SchemaService.Schema> GetSchemaByIdAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetScheduleById", ReplyAction="http://tempuri.org/IScheduleService/GetScheduleByIdResponse")]
+        System.Threading.Tasks.Task<Torq.WPF.ScheduleService.Schedule> GetScheduleByIdAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchemaService/GetSchemas", ReplyAction="http://tempuri.org/ISchemaService/GetSchemasResponse")]
-        Torq.WPF.SchemaService.Schema[] GetSchemas();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedules", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesResponse")]
+        Torq.WPF.ScheduleService.Schedule[] GetSchedules();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchemaService/GetSchemas", ReplyAction="http://tempuri.org/ISchemaService/GetSchemasResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.SchemaService.Schema[]> GetSchemasAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedules", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesResponse")]
+        System.Threading.Tasks.Task<Torq.WPF.ScheduleService.Schedule[]> GetSchedulesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchemaService/RemoveSchema", ReplyAction="http://tempuri.org/ISchemaService/RemoveSchemaResponse")]
-        void RemoveSchema(Torq.WPF.SchemaService.Schema schema);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/RemoveSchedule", ReplyAction="http://tempuri.org/IScheduleService/RemoveScheduleResponse")]
+        void RemoveSchedule(Torq.WPF.ScheduleService.Schedule schedule);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchemaService/RemoveSchema", ReplyAction="http://tempuri.org/ISchemaService/RemoveSchemaResponse")]
-        System.Threading.Tasks.Task RemoveSchemaAsync(Torq.WPF.SchemaService.Schema schema);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/RemoveSchedule", ReplyAction="http://tempuri.org/IScheduleService/RemoveScheduleResponse")]
+        System.Threading.Tasks.Task RemoveScheduleAsync(Torq.WPF.ScheduleService.Schedule schedule);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchemaService/UpdateRole", ReplyAction="http://tempuri.org/ISchemaService/UpdateRoleResponse")]
-        Torq.WPF.SchemaService.Schema UpdateRole(Torq.WPF.SchemaService.Schema schema);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/UpdateSchedule", ReplyAction="http://tempuri.org/IScheduleService/UpdateScheduleResponse")]
+        Torq.WPF.ScheduleService.Schedule UpdateSchedule(Torq.WPF.ScheduleService.Schedule schedule);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISchemaService/UpdateRole", ReplyAction="http://tempuri.org/ISchemaService/UpdateRoleResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.SchemaService.Schema> UpdateRoleAsync(Torq.WPF.SchemaService.Schema schema);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/UpdateSchedule", ReplyAction="http://tempuri.org/IScheduleService/UpdateScheduleResponse")]
+        System.Threading.Tasks.Task<Torq.WPF.ScheduleService.Schedule> UpdateScheduleAsync(Torq.WPF.ScheduleService.Schedule schedule);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISchemaServiceChannel : Torq.WPF.SchemaService.ISchemaService, System.ServiceModel.IClientChannel {
+    public interface IScheduleServiceChannel : Torq.WPF.ScheduleService.IScheduleService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SchemaServiceClient : System.ServiceModel.ClientBase<Torq.WPF.SchemaService.ISchemaService>, Torq.WPF.SchemaService.ISchemaService {
+    public partial class ScheduleServiceClient : System.ServiceModel.ClientBase<Torq.WPF.ScheduleService.IScheduleService>, Torq.WPF.ScheduleService.IScheduleService {
         
-        public SchemaServiceClient() {
+        public ScheduleServiceClient() {
         }
         
-        public SchemaServiceClient(string endpointConfigurationName) : 
+        public ScheduleServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public SchemaServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public ScheduleServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SchemaServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ScheduleServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SchemaServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ScheduleServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public Torq.WPF.SchemaService.Schema CreateSchema(Torq.WPF.SchemaService.Schema schema) {
-            return base.Channel.CreateSchema(schema);
+        public Torq.WPF.ScheduleService.Schedule CreateSchedule(Torq.WPF.ScheduleService.Schedule schedule) {
+            return base.Channel.CreateSchedule(schedule);
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.SchemaService.Schema> CreateSchemaAsync(Torq.WPF.SchemaService.Schema schema) {
-            return base.Channel.CreateSchemaAsync(schema);
+        public System.Threading.Tasks.Task<Torq.WPF.ScheduleService.Schedule> CreateScheduleAsync(Torq.WPF.ScheduleService.Schedule schedule) {
+            return base.Channel.CreateScheduleAsync(schedule);
         }
         
-        public Torq.WPF.SchemaService.Schema GetSchemaById(int id) {
-            return base.Channel.GetSchemaById(id);
+        public Torq.WPF.ScheduleService.Schedule GetScheduleById(int id) {
+            return base.Channel.GetScheduleById(id);
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.SchemaService.Schema> GetSchemaByIdAsync(int id) {
-            return base.Channel.GetSchemaByIdAsync(id);
+        public System.Threading.Tasks.Task<Torq.WPF.ScheduleService.Schedule> GetScheduleByIdAsync(int id) {
+            return base.Channel.GetScheduleByIdAsync(id);
         }
         
-        public Torq.WPF.SchemaService.Schema[] GetSchemas() {
-            return base.Channel.GetSchemas();
+        public Torq.WPF.ScheduleService.Schedule[] GetSchedules() {
+            return base.Channel.GetSchedules();
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.SchemaService.Schema[]> GetSchemasAsync() {
-            return base.Channel.GetSchemasAsync();
+        public System.Threading.Tasks.Task<Torq.WPF.ScheduleService.Schedule[]> GetSchedulesAsync() {
+            return base.Channel.GetSchedulesAsync();
         }
         
-        public void RemoveSchema(Torq.WPF.SchemaService.Schema schema) {
-            base.Channel.RemoveSchema(schema);
+        public void RemoveSchedule(Torq.WPF.ScheduleService.Schedule schedule) {
+            base.Channel.RemoveSchedule(schedule);
         }
         
-        public System.Threading.Tasks.Task RemoveSchemaAsync(Torq.WPF.SchemaService.Schema schema) {
-            return base.Channel.RemoveSchemaAsync(schema);
+        public System.Threading.Tasks.Task RemoveScheduleAsync(Torq.WPF.ScheduleService.Schedule schedule) {
+            return base.Channel.RemoveScheduleAsync(schedule);
         }
         
-        public Torq.WPF.SchemaService.Schema UpdateRole(Torq.WPF.SchemaService.Schema schema) {
-            return base.Channel.UpdateRole(schema);
+        public Torq.WPF.ScheduleService.Schedule UpdateSchedule(Torq.WPF.ScheduleService.Schedule schedule) {
+            return base.Channel.UpdateSchedule(schedule);
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.SchemaService.Schema> UpdateRoleAsync(Torq.WPF.SchemaService.Schema schema) {
-            return base.Channel.UpdateRoleAsync(schema);
+        public System.Threading.Tasks.Task<Torq.WPF.ScheduleService.Schedule> UpdateScheduleAsync(Torq.WPF.ScheduleService.Schedule schedule) {
+            return base.Channel.UpdateScheduleAsync(schedule);
         }
     }
 }

@@ -18,40 +18,40 @@ namespace Torq.DataService
 		public RoleService() { context.Configuration.ProxyCreationEnabled = false; }
 		public void Dispose() => context.Dispose();
 
-		public async Task<Role> CreateRole(Role role)
+		public Role CreateRole(Role role)
 		{
 			context.Roles.Add(role);
-			await context.SaveChangesAsync();
-			return await GetRoleByIdAsync(role.Id);
+			context.SaveChanges();
+			return GetRoleById(role.Id);
 		}
 
-		public async Task<Role> GetRoleByIdAsync(int id)
+		public Role GetRoleById(int id)
 		{
-			return await context.Roles.FirstOrDefaultAsync(r => r.Id == id);
+			return context.Roles.FirstOrDefault(r => r.Id == id);
 		}
 
-		public async Task<List<Role>> GetRoles()
+		public IEnumerable<Role> GetRoles()
 		{
-			return await context.Roles.ToListAsync();
+			return context.Roles;
 		}
 
-		public async void RemoveRole(Role role)
+		public void RemoveRole(Role role)
 		{
-			var result = await context.Roles.FirstOrDefaultAsync(r => r.Id == role.Id);
+			var result = context.Roles.FirstOrDefault(r => r.Id == role.Id);
 
 			context.Roles.Remove(result);
-			await context.SaveChangesAsync();
+			context.SaveChanges();
 		}
 
-		public async Task<Role> UpdateRole(Role role)
+		public Role UpdateRole(Role role)
 		{
-			var result = await context.Roles.FirstOrDefaultAsync(r => r.Id == role.Id);
+			var result = context.Roles.FirstOrDefault(r => r.Id == role.Id);
 
 			if (result == null)
 				return null;
 
 			context.Entry(result).CurrentValues.SetValues(role);
-			await context.SaveChangesAsync();
+			context.SaveChanges();
 
 			return role;
 		}

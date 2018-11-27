@@ -9,13 +9,13 @@ namespace Torq.DataService
 	public interface ISalaryService
 	{
 		[OperationContract]
-		Task<Salary> CreateSchema(Salary salary);
+		Salary CreateSalary(Salary salary);
 		[OperationContract]
-		Task<List<Salary>> GetSalaries();
+		List<Salary> GetSalaries();
 		[OperationContract]
-		Task<Salary> GetSalaryByIdAsync(int id);
+		Salary GetSalaryById(int id);
 		[OperationContract]
-		Task<Salary> UpdateSalary(Salary salary);
+		Salary UpdateSalary(Salary salary);
 		[OperationContract]
 		void RemoveSalary(Salary salary);
 	}

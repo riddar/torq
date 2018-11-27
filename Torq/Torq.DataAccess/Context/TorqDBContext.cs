@@ -10,7 +10,7 @@ namespace Torq.DataAccess.Context
 		public DbSet<Employee> Employees { get; set; }
 		public DbSet<Role> Roles { get; set; }
 		public DbSet<Salary> Salaries { get; set; }
-		public DbSet<Schema> Schemas { get; set; }
+		public DbSet<Schedule> Schedules { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
