@@ -7,7 +7,7 @@ namespace Torq.WPF.Views
 		public MainWindow()
 		{
 			InitializeComponent();
-			MainFrame.Content = new LoginPage();
+			MainFrame.NavigationService.Navigate(new LoginPage());
 		}
 	}
 }
