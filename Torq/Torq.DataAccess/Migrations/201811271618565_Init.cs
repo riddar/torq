@@ -12,12 +12,13 @@ namespace Torq.DataAccess.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        UserName = c.String(),
-                        Password = c.String(),
+                        UserName = c.String(nullable: false),
+                        Password = c.String(nullable: false),
                         FirstName = c.String(),
                         LastName = c.String(),
                         Email = c.String(),
                         IsOnline = c.Boolean(nullable: false),
+                        LoginError = c.String(),
                         Role_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)

@@ -13,10 +13,10 @@ namespace Torq.WPF.Views
 
 		private void OnLogin(object sender, RoutedEventArgs e)
 		{
-			using (var employeeService = new EmployeeServiceClient())
+			using (EmployeeServiceClient employeeService = new EmployeeServiceClient())
 			{
-				var employee = employeeService.GetEmployeeByUserName(UserName.Text);
-				if(employee != null && employee.Password == Password.Text)
+				Employee employee = employeeService.GetEmployeeByUserName(UserName.Text);
+				if(employee != null && employee.Password == Password.Password)
 				{
 					this.NavigationService.Navigate(new CalenderPage());
 				}
