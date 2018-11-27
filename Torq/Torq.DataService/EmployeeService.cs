@@ -28,6 +28,11 @@ namespace Torq.DataService
 			return context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == id);
 		}
 
+		public Employee GetEmployeeByUserName(string userName)
+		{
+			return context.Employees.Include(e => e.Role).FirstOrDefault(e => e.UserName == userName);
+		}
+
 		public IEnumerable<Employee> GetEmployees()
 		{
 			return context.Employees.Include(e => e.Role);

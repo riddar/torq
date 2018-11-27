@@ -12,6 +12,8 @@ namespace Torq.DataService
 		[OperationContract]
 		Employee GetEmployeeById(int id);
 		[OperationContract]
+		Employee GetEmployeeByUserName(string userName);
+		[OperationContract]
 		Employee UpdateEmployee(Employee employee);
 		[OperationContract]
 		void RemoveEmployee(Employee employee);

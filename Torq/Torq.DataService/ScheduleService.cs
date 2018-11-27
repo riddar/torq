@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.ServiceModel;
-using System.Threading.Tasks;
 using Torq.DataAccess.Context;
 using Torq.Models.Objects;
 

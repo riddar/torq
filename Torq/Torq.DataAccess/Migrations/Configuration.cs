@@ -19,10 +19,10 @@ namespace Torq.DataAccess.Migrations
 			);
 
 			context.Employees.AddOrUpdate(e => e.Id,
-				new Employee { Id=1, FirstName="Anders", LastName="And", IsOnline=true },
-				new Employee { Id=2, FirstName="Kalle", LastName="Anka", IsOnline=true },
-				new Employee { Id=3, FirstName="Donald", LastName="Duck", IsOnline=true },
-				new Employee { Id=4, FirstName="Akku", LastName="Anka", IsOnline=false }
+				new Employee { Id=1, UserName="anders", Password="and", FirstName="Anders", LastName="And", IsOnline=true },
+				new Employee { Id=2, UserName="kalle", Password="anka", FirstName="Kalle", LastName="Anka", IsOnline=true },
+				new Employee { Id=3, UserName="donald", Password="duck", FirstName="Donald", LastName="Duck", IsOnline=true },
+				new Employee { Id=4, UserName="Akku", Password="anka",FirstName="Akku", LastName="Anka", IsOnline=false }
 			);
 
 			context.Salaries.AddOrUpdate(s => s.Id,
