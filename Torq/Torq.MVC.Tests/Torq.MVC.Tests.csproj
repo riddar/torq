@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{674CC4CA-1696-4C92-AA88-0932EF338BCF}</ProjectGuid>
+    <ProjectGuid>{A1A0676F-0323-43AF-9B3D-1A0769859871}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Torq.MVC.Tests</RootNamespace>
@@ -97,12 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Torq.MVC\Torq.MVC.csproj">
-      <Project>{2E99BE31-C01D-45CF-83B4-EFA3CF659031}</Project>
-      <Name>Torq.MVC</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
