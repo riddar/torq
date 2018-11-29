@@ -55,10 +55,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetSchedulesByDay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulesByDayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" minOccurs="0" name="GetSchedulesByDayResult" nillable="true" type="q7:ArrayOfSchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RemoveSchedule">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" minOccurs="0" name="schedule" nillable="true" type="q7:Schedule" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" minOccurs="0" name="schedule" nillable="true" type="q8:Schedule" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -70,14 +84,14 @@
   <xs:element name="UpdateSchedule">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" minOccurs="0" name="schedule" nillable="true" type="q8:Schedule" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" minOccurs="0" name="schedule" nillable="true" type="q9:Schedule" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateScheduleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" minOccurs="0" name="UpdateScheduleResult" nillable="true" type="q9:Schedule" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Torq.Models.Objects" minOccurs="0" name="UpdateScheduleResult" nillable="true" type="q10:Schedule" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

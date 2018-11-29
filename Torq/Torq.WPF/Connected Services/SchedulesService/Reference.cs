@@ -39,6 +39,12 @@ namespace Torq.WPF.SchedulesService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByEmployee", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByEmployeeResponse")]
         System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByEmployeeAsync(Torq.Models.Objects.Employee employee);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByDay", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByDayResponse")]
+        Torq.Models.Objects.Schedule[] GetSchedulesByDay(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByDay", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByDayResponse")]
+        System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByDayAsync(System.DateTime date);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/RemoveSchedule", ReplyAction="http://tempuri.org/IScheduleService/RemoveScheduleResponse")]
         void RemoveSchedule(Torq.Models.Objects.Schedule schedule);
         
@@ -109,6 +115,14 @@ namespace Torq.WPF.SchedulesService {
         
         public System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByEmployeeAsync(Torq.Models.Objects.Employee employee) {
             return base.Channel.GetSchedulesByEmployeeAsync(employee);
+        }
+        
+        public Torq.Models.Objects.Schedule[] GetSchedulesByDay(System.DateTime date) {
+            return base.Channel.GetSchedulesByDay(date);
+        }
+        
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByDayAsync(System.DateTime date) {
+            return base.Channel.GetSchedulesByDayAsync(date);
         }
         
         public void RemoveSchedule(Torq.Models.Objects.Schedule schedule) {

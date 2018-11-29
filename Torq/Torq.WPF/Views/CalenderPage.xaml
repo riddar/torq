@@ -7,6 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TORQ" Height="450" Width="800" HorizontalAlignment="Center">
+    
+    
 
     <StackPanel>
         <TabControl x:Name="MainWindow_TabControl" Height="420">
@@ -23,9 +25,8 @@
                     </Grid.RowDefinitions>
                     <Button Grid.Column="0" Content="Previus Month" Margin="5" />
                     <Button Grid.Column="2" Content="Next Month" Margin="5"/>
-                    <Label Grid.Column="1" Content="Month" HorizontalAlignment="Center"  Margin="5" />
-                    <DataGrid x:Name="Schedules_DataGrid" Grid.Row="1" Grid.ColumnSpan="3"  Margin="5"/>
-
+                    <Label x:Name="Month_title" Grid.Column="1" Content="Month" HorizontalAlignment="Center"  Margin="5" />
+                    <DataGrid ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="3" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="TabItem_Salary" Header="Salary">
@@ -42,7 +43,6 @@
                     <Button Grid.Column="0" Content="Button" Margin="5"/>
                     <Button Grid.Column="2" Content="Button" Margin="5"/>
                     <Label  Grid.Column="1" Content="Month" HorizontalAlignment="Center" Margin="5"/>
-                    <DataGrid Grid.Row="1" Grid.ColumnSpan="3" Margin="5"/>
                 </Grid>
             </TabItem>
         </TabControl>
