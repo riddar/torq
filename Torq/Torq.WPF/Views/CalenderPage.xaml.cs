@@ -1,28 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
+using Torq.WPF.EmployeesService;
 
 namespace Torq.WPF.Views
 {
-	/// <summary>
-	/// Interaction logic for CalenderPage.xaml
-	/// </summary>
 	public partial class CalenderPage : Page
 	{
+		Employee employee; 
+
 		public CalenderPage()
 		{
 			InitializeComponent();
+			employee = new Employee() { Id=1, UserName="donald", Password="duck", FirstName="donald", LastName="duck" };
+			EmployeeLoggedIn.Content = employee.FirstName + " " + employee.LastName;
 		}
 	}
 }

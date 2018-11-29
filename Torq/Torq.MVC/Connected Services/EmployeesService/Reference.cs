@@ -38,6 +38,9 @@ namespace Torq.MVC.EmployeesService {
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LoginErrorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -117,6 +120,19 @@ namespace Torq.MVC.EmployeesService {
                 if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
                     this.LastNameField = value;
                     this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LoginError {
+            get {
+                return this.LoginErrorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginErrorField, value) != true)) {
+                    this.LoginErrorField = value;
+                    this.RaisePropertyChanged("LoginError");
                 }
             }
         }

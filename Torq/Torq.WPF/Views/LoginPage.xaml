@@ -9,8 +9,8 @@
     <Grid>
         <Label Content="Username" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0"  VerticalAlignment="Top" Width="120"/>
         <Label Content="Password" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="UserName"  HorizontalAlignment="Left" Height="23" Margin="135,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="Password" HorizontalAlignment="Left" Height="23" Margin="135,38,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="UserName"  HorizontalAlignment="Left" Height="23" Margin="135,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox Name="Password" HorizontalAlignment="Left" Height="23" Margin="135,38,0,0" VerticalAlignment="Top" Width="120"/>
         <Button Click="OnLogin" Content="Log In" HorizontalAlignment="Left" Margin="180,66,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Click="OnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="71,66,0,0" VerticalAlignment="Top" Width="104"/>
     </Grid>
