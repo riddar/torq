@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace Torq.DataService
@@ -14,6 +15,8 @@ namespace Torq.DataService
 		IEnumerable<Torq.Models.Objects.Schedule> GetSchedules();
 		[OperationContract]
 		IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByEmployee(Torq.Models.Objects.Employee employee);
+		[OperationContract]
+		IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByDay(DateTime date);
 		[OperationContract]
 		void RemoveSchedule(Torq.Models.Objects.Schedule schedule);
 		[OperationContract]

@@ -67,6 +67,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\SalariesService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\SchedulesService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -74,6 +79,9 @@
     </Compile>
     <Compile Include="Views\CalenderPage.xaml.cs">
       <DependentUpon>CalenderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DayCalendarPage.xaml.cs">
+      <DependentUpon>DayCalendarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -86,6 +94,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\CalenderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DayCalendarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,6 +148,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RolesService\RoleService.wsdl" />
+    <None Include="Connected Services\SalariesService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SalariesService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SalariesService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SalariesService\SalaryService.wsdl" />
     <None Include="Connected Services\SchedulesService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -148,6 +170,7 @@
     <None Include="Connected Services\SchedulesService\ScheduleService.wsdl" />
     <None Include="Properties\DataSources\Torq.Models.Objects.Employee.datasource" />
     <None Include="Properties\DataSources\Torq.Models.Objects.Role.datasource" />
+    <None Include="Properties\DataSources\Torq.Models.Objects.Salary.datasource" />
     <None Include="Properties\DataSources\Torq.Models.Objects.Schedule.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -163,6 +186,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\EmployeesService\" />
     <WCFMetadataStorage Include="Connected Services\RolesService\" />
+    <WCFMetadataStorage Include="Connected Services\SalariesService\" />
     <WCFMetadataStorage Include="Connected Services\SchedulesService\" />
   </ItemGroup>
   <ItemGroup>
@@ -187,21 +211,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SchedulesService\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SchedulesService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SchedulesService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SchedulesService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\RolesService\item.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +221,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\RolesService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalariesService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalariesService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalariesService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalariesService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SchedulesService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SchedulesService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SchedulesService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SchedulesService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
