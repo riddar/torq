@@ -37,6 +37,12 @@
   <wsdl:message name="IScheduleService_GetSchedulesByDay_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSchedulesByDayResponse" />
   </wsdl:message>
+  <wsdl:message name="IScheduleService_GetSchedulesByMonth_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchedulesByMonth" />
+  </wsdl:message>
+  <wsdl:message name="IScheduleService_GetSchedulesByMonth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchedulesByMonthResponse" />
+  </wsdl:message>
   <wsdl:message name="IScheduleService_RemoveSchedule_InputMessage">
     <wsdl:part name="parameters" element="tns:RemoveSchedule" />
   </wsdl:message>
@@ -69,6 +75,10 @@
     <wsdl:operation name="GetSchedulesByDay">
       <wsdl:input wsaw:Action="http://tempuri.org/IScheduleService/GetSchedulesByDay" message="tns:IScheduleService_GetSchedulesByDay_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IScheduleService/GetSchedulesByDayResponse" message="tns:IScheduleService_GetSchedulesByDay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulesByMonth">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduleService/GetSchedulesByMonth" message="tns:IScheduleService_GetSchedulesByMonth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduleService/GetSchedulesByMonthResponse" message="tns:IScheduleService_GetSchedulesByMonth_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveSchedule">
       <wsdl:input wsaw:Action="http://tempuri.org/IScheduleService/RemoveSchedule" message="tns:IScheduleService_RemoveSchedule_InputMessage" />
@@ -119,6 +129,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetSchedulesByDay">
       <soap:operation soapAction="http://tempuri.org/IScheduleService/GetSchedulesByDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulesByMonth">
+      <soap:operation soapAction="http://tempuri.org/IScheduleService/GetSchedulesByMonth" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

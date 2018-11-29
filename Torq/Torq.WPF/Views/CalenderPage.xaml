@@ -23,26 +23,20 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition  />
                     </Grid.RowDefinitions>
-                    <Button Grid.Column="0" Content="Previus Month" Margin="5" />
-                    <Button Grid.Column="2" Content="Next Month" Margin="5"/>
+                    <Button Click="OnPreviousMonth" Grid.Column="0" Content="Previus Month" Margin="5" />
                     <Label x:Name="Month_title" Grid.Column="1" Content="Month" HorizontalAlignment="Center"  Margin="5" />
-                    <DataGrid ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="3" />
+                    <Button Click="OnNextMonth" Grid.Column="2" Content="Next Month" Margin="5"/>
+                    <DataGrid ItemsSource="{Binding}" SelectedItem="{Binding Path=SelectedDate, Mode=TwoWay}" Grid.Row="1" Grid.ColumnSpan="3" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="TabItem_Salary" Header="Salary">
                 <Grid Margin="5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition  />
-                    </Grid.RowDefinitions>
-                    <Button Grid.Column="0" Content="Button" Margin="5"/>
-                    <Button Grid.Column="2" Content="Button" Margin="5"/>
-                    <Label  Grid.Column="1" Content="Month" HorizontalAlignment="Center" Margin="5"/>
+                    <StackPanel>
+                        <TextBlock Text="Total: " />
+                        <TextBlock Text="Total Hours: " />
+                        <TextBlock Text="Total Days: " />
+                        <TextBlock Text="Total Sick Days: " />
+                    </StackPanel>
                 </Grid>
             </TabItem>
         </TabControl>

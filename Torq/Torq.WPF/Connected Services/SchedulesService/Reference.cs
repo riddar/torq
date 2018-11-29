@@ -45,6 +45,12 @@ namespace Torq.WPF.SchedulesService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByDay", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByDayResponse")]
         System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByDayAsync(System.DateTime date);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByMonth", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByMonthResponse")]
+        Torq.Models.Objects.Schedule[] GetSchedulesByMonth(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByMonth", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByMonthResponse")]
+        System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByMonthAsync(System.DateTime date);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/RemoveSchedule", ReplyAction="http://tempuri.org/IScheduleService/RemoveScheduleResponse")]
         void RemoveSchedule(Torq.Models.Objects.Schedule schedule);
         
@@ -123,6 +129,14 @@ namespace Torq.WPF.SchedulesService {
         
         public System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByDayAsync(System.DateTime date) {
             return base.Channel.GetSchedulesByDayAsync(date);
+        }
+        
+        public Torq.Models.Objects.Schedule[] GetSchedulesByMonth(System.DateTime date) {
+            return base.Channel.GetSchedulesByMonth(date);
+        }
+        
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByMonthAsync(System.DateTime date) {
+            return base.Channel.GetSchedulesByMonthAsync(date);
         }
         
         public void RemoveSchedule(Torq.Models.Objects.Schedule schedule) {
