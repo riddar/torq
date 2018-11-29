@@ -62,10 +62,9 @@
          @:ii++;
 
         }
-        console.log('loggad model:' + "@Model.Last().Employee.FirstName");    
+      
         console.log(myArray);
-        console.log('newarray: ' + newArray[4].Employee.FirstName);
-        //document.getElementById("demo").innerHTML = newArray[4].Employee.FirstName;
+     
 
         let FilterdDates = newArray.filter(obj => String(obj.StartTime).includes(dateTimeField.value));
         let split = String(newArray[0].StartTime).split(" ");
@@ -80,10 +79,18 @@
         
         for (ii = 0; ii < FilterdDates.length; ii++)
         {
+
+            let x = document.createElement("A");
+            let t = document.createTextNode("Link");
+            x.setAttribute("href", "TODO");
+            x.appendChild(t);
+
             if (FilterdDates[ii].Employee === null) {
                 let li = document.createElement('li');
                 Aul.appendChild(li);
                 li.innerHTML += FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime;
+                li.appendChild(x);
+
             }
             else {
                 li = document.createElement('li');
