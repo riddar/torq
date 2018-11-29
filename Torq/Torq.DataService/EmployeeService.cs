@@ -4,7 +4,6 @@ using System.Linq;
 using System.Data.Entity;
 using System.ServiceModel;
 using Torq.DataAccess.Context;
-using Torq.Models.Objects;
 
 namespace Torq.DataService
 {
@@ -16,29 +15,29 @@ namespace Torq.DataService
 		public EmployeeService() { context.Configuration.ProxyCreationEnabled = false;  }
 		public void Dispose() => context.Dispose();
 
-		public Employee CreateEmployee(Employee employee)
+		public Torq.Models.Objects.Employee CreateEmployee(Torq.Models.Objects.Employee employee)
 		{
 			context.Employees.Add(employee);
 			context.SaveChanges();
 			return GetEmployeeById(employee.Id);
 		}
 
-		public Employee GetEmployeeById(int id)
+		public Torq.Models.Objects.Employee GetEmployeeById(int id)
 		{
 			return context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == id);
 		}
 
-		public Employee GetEmployeeByUserName(string userName)
+		public Torq.Models.Objects.Employee GetEmployeeByUserName(string userName)
 		{
 			return context.Employees.Include(e => e.Role).FirstOrDefault(e => e.UserName == userName);
 		}
 
-		public IEnumerable<Employee> GetEmployees()
+		public IEnumerable<Torq.Models.Objects.Employee> GetEmployees()
 		{
 			return context.Employees.Include(e => e.Role);
 		}
 
-		public void RemoveEmployee(Employee employee)
+		public void RemoveEmployee(Torq.Models.Objects.Employee employee)
 		{
 			var result = context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == employee.Id);
 
@@ -46,7 +45,7 @@ namespace Torq.DataService
 			context.SaveChanges();
 		}
 
-		public Employee UpdateEmployee(Employee employee)
+		public Torq.Models.Objects.Employee UpdateEmployee(Torq.Models.Objects.Employee employee)
 		{
 			var result = context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == employee.Id);
 

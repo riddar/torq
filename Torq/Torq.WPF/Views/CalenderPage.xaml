@@ -24,7 +24,7 @@
                     <Button Grid.Column="0" Content="Previus Month" Margin="5" />
                     <Button Grid.Column="2" Content="Next Month" Margin="5"/>
                     <Label Grid.Column="1" Content="Month" HorizontalAlignment="Center"  Margin="5" />
-                    <DataGrid Grid.Row="1" Grid.ColumnSpan="3"  Margin="5"/>
+                    <DataGrid x:Name="Schedules_DataGrid" Grid.Row="1" Grid.ColumnSpan="3"  Margin="5"/>
 
                 </Grid>
             </TabItem>
@@ -48,8 +48,8 @@
         </TabControl>
         <StatusBar>
             <Label Content="Logged in user:"/>
-            <Label Name="EmployeeLoggedIn" Content="Donald Duck"/>
-            <Button Content="Log Out"/>
+            <Label x:Name="EmployeeLoggedIn" Content="Donald Duck"/>
+            <Button Content="Log Out" Click="OnLogout"/>
         </StatusBar>
     </StackPanel>
 </Page>

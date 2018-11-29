@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using Torq.WPF.EmployeesService;
 
@@ -15,10 +16,11 @@ namespace Torq.WPF.Views
 		{
 			using (EmployeeServiceClient employeeService = new EmployeeServiceClient())
 			{
-				Employee employee = employeeService.GetEmployeeByUserName(UserName.Text);
+				var employee = employeeService.GetEmployeeByUserName(UserName.Text);
+
 				if(employee != null && employee.Password == Password.Password)
 				{
-					this.NavigationService.Navigate(new CalenderPage());
+					this.NavigationService.Navigate(new CalenderPage(employee));
 				}
 			}
 		}

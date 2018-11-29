@@ -9,120 +9,41 @@
 //------------------------------------------------------------------------------
 
 namespace Torq.WPF.SalariesService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Salary", Namespace="http://schemas.datacontract.org/2004/07/Torq.Models.Objects")]
-    [System.SerializableAttribute()]
-    public partial class Salary : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AmountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SalaryTypeField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Amount {
-            get {
-                return this.AmountField;
-            }
-            set {
-                if ((this.AmountField.Equals(value) != true)) {
-                    this.AmountField = value;
-                    this.RaisePropertyChanged("Amount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SalaryType {
-            get {
-                return this.SalaryTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SalaryTypeField, value) != true)) {
-                    this.SalaryTypeField = value;
-                    this.RaisePropertyChanged("SalaryType");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SalariesService.ISalaryService")]
     public interface ISalaryService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/CreateSalary", ReplyAction="http://tempuri.org/ISalaryService/CreateSalaryResponse")]
-        Torq.WPF.SalariesService.Salary CreateSalary(Torq.WPF.SalariesService.Salary salary);
+        Torq.Models.Objects.Salary CreateSalary(Torq.Models.Objects.Salary salary);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/CreateSalary", ReplyAction="http://tempuri.org/ISalaryService/CreateSalaryResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.SalariesService.Salary> CreateSalaryAsync(Torq.WPF.SalariesService.Salary salary);
+        System.Threading.Tasks.Task<Torq.Models.Objects.Salary> CreateSalaryAsync(Torq.Models.Objects.Salary salary);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/GetSalaries", ReplyAction="http://tempuri.org/ISalaryService/GetSalariesResponse")]
-        Torq.WPF.SalariesService.Salary[] GetSalaries();
+        Torq.Models.Objects.Salary[] GetSalaries();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/GetSalaries", ReplyAction="http://tempuri.org/ISalaryService/GetSalariesResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.SalariesService.Salary[]> GetSalariesAsync();
+        System.Threading.Tasks.Task<Torq.Models.Objects.Salary[]> GetSalariesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/GetSalaryById", ReplyAction="http://tempuri.org/ISalaryService/GetSalaryByIdResponse")]
-        Torq.WPF.SalariesService.Salary GetSalaryById(int id);
+        Torq.Models.Objects.Salary GetSalaryById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/GetSalaryById", ReplyAction="http://tempuri.org/ISalaryService/GetSalaryByIdResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.SalariesService.Salary> GetSalaryByIdAsync(int id);
+        System.Threading.Tasks.Task<Torq.Models.Objects.Salary> GetSalaryByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/UpdateSalary", ReplyAction="http://tempuri.org/ISalaryService/UpdateSalaryResponse")]
-        Torq.WPF.SalariesService.Salary UpdateSalary(Torq.WPF.SalariesService.Salary salary);
+        Torq.Models.Objects.Salary UpdateSalary(Torq.Models.Objects.Salary salary);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/UpdateSalary", ReplyAction="http://tempuri.org/ISalaryService/UpdateSalaryResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.SalariesService.Salary> UpdateSalaryAsync(Torq.WPF.SalariesService.Salary salary);
+        System.Threading.Tasks.Task<Torq.Models.Objects.Salary> UpdateSalaryAsync(Torq.Models.Objects.Salary salary);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/RemoveSalary", ReplyAction="http://tempuri.org/ISalaryService/RemoveSalaryResponse")]
-        void RemoveSalary(Torq.WPF.SalariesService.Salary salary);
+        void RemoveSalary(Torq.Models.Objects.Salary salary);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/RemoveSalary", ReplyAction="http://tempuri.org/ISalaryService/RemoveSalaryResponse")]
-        System.Threading.Tasks.Task RemoveSalaryAsync(Torq.WPF.SalariesService.Salary salary);
+        System.Threading.Tasks.Task RemoveSalaryAsync(Torq.Models.Objects.Salary salary);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -152,43 +73,43 @@ namespace Torq.WPF.SalariesService {
                 base(binding, remoteAddress) {
         }
         
-        public Torq.WPF.SalariesService.Salary CreateSalary(Torq.WPF.SalariesService.Salary salary) {
+        public Torq.Models.Objects.Salary CreateSalary(Torq.Models.Objects.Salary salary) {
             return base.Channel.CreateSalary(salary);
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.SalariesService.Salary> CreateSalaryAsync(Torq.WPF.SalariesService.Salary salary) {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Salary> CreateSalaryAsync(Torq.Models.Objects.Salary salary) {
             return base.Channel.CreateSalaryAsync(salary);
         }
         
-        public Torq.WPF.SalariesService.Salary[] GetSalaries() {
+        public Torq.Models.Objects.Salary[] GetSalaries() {
             return base.Channel.GetSalaries();
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.SalariesService.Salary[]> GetSalariesAsync() {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Salary[]> GetSalariesAsync() {
             return base.Channel.GetSalariesAsync();
         }
         
-        public Torq.WPF.SalariesService.Salary GetSalaryById(int id) {
+        public Torq.Models.Objects.Salary GetSalaryById(int id) {
             return base.Channel.GetSalaryById(id);
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.SalariesService.Salary> GetSalaryByIdAsync(int id) {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Salary> GetSalaryByIdAsync(int id) {
             return base.Channel.GetSalaryByIdAsync(id);
         }
         
-        public Torq.WPF.SalariesService.Salary UpdateSalary(Torq.WPF.SalariesService.Salary salary) {
+        public Torq.Models.Objects.Salary UpdateSalary(Torq.Models.Objects.Salary salary) {
             return base.Channel.UpdateSalary(salary);
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.SalariesService.Salary> UpdateSalaryAsync(Torq.WPF.SalariesService.Salary salary) {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Salary> UpdateSalaryAsync(Torq.Models.Objects.Salary salary) {
             return base.Channel.UpdateSalaryAsync(salary);
         }
         
-        public void RemoveSalary(Torq.WPF.SalariesService.Salary salary) {
+        public void RemoveSalary(Torq.Models.Objects.Salary salary) {
             base.Channel.RemoveSalary(salary);
         }
         
-        public System.Threading.Tasks.Task RemoveSalaryAsync(Torq.WPF.SalariesService.Salary salary) {
+        public System.Threading.Tasks.Task RemoveSalaryAsync(Torq.Models.Objects.Salary salary) {
             return base.Channel.RemoveSalaryAsync(salary);
         }
     }

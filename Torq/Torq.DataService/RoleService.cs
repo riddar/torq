@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using Torq.DataAccess.Context;
-using Torq.Models.Objects;
 
 namespace Torq.DataService
 {
@@ -18,24 +14,24 @@ namespace Torq.DataService
 		public RoleService() { context.Configuration.ProxyCreationEnabled = false; }
 		public void Dispose() => context.Dispose();
 
-		public Role CreateRole(Role role)
+		public Torq.Models.Objects.Role CreateRole(Torq.Models.Objects.Role role)
 		{
 			context.Roles.Add(role);
 			context.SaveChanges();
 			return GetRoleById(role.Id);
 		}
 
-		public Role GetRoleById(int id)
+		public Torq.Models.Objects.Role GetRoleById(int id)
 		{
 			return context.Roles.FirstOrDefault(r => r.Id == id);
 		}
 
-		public IEnumerable<Role> GetRoles()
+		public IEnumerable<Torq.Models.Objects.Role> GetRoles()
 		{
 			return context.Roles;
 		}
 
-		public void RemoveRole(Role role)
+		public void RemoveRole(Torq.Models.Objects.Role role)
 		{
 			var result = context.Roles.FirstOrDefault(r => r.Id == role.Id);
 
@@ -43,7 +39,7 @@ namespace Torq.DataService
 			context.SaveChanges();
 		}
 
-		public Role UpdateRole(Role role)
+		public Torq.Models.Objects.Role UpdateRole(Torq.Models.Objects.Role role)
 		{
 			var result = context.Roles.FirstOrDefault(r => r.Id == role.Id);
 

@@ -9,104 +9,41 @@
 //------------------------------------------------------------------------------
 
 namespace Torq.WPF.RolesService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Role", Namespace="http://schemas.datacontract.org/2004/07/Torq.Models.Objects")]
-    [System.SerializableAttribute()]
-    public partial class Role : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="RolesService.IRoleService")]
     public interface IRoleService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/CreateRole", ReplyAction="http://tempuri.org/IRoleService/CreateRoleResponse")]
-        Torq.WPF.RolesService.Role CreateRole(Torq.WPF.RolesService.Role role);
+        Torq.Models.Objects.Role CreateRole(Torq.Models.Objects.Role role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/CreateRole", ReplyAction="http://tempuri.org/IRoleService/CreateRoleResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.RolesService.Role> CreateRoleAsync(Torq.WPF.RolesService.Role role);
+        System.Threading.Tasks.Task<Torq.Models.Objects.Role> CreateRoleAsync(Torq.Models.Objects.Role role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/GetRoleById", ReplyAction="http://tempuri.org/IRoleService/GetRoleByIdResponse")]
-        Torq.WPF.RolesService.Role GetRoleById(int id);
+        Torq.Models.Objects.Role GetRoleById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/GetRoleById", ReplyAction="http://tempuri.org/IRoleService/GetRoleByIdResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.RolesService.Role> GetRoleByIdAsync(int id);
+        System.Threading.Tasks.Task<Torq.Models.Objects.Role> GetRoleByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/GetRoles", ReplyAction="http://tempuri.org/IRoleService/GetRolesResponse")]
-        Torq.WPF.RolesService.Role[] GetRoles();
+        Torq.Models.Objects.Role[] GetRoles();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/GetRoles", ReplyAction="http://tempuri.org/IRoleService/GetRolesResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.RolesService.Role[]> GetRolesAsync();
+        System.Threading.Tasks.Task<Torq.Models.Objects.Role[]> GetRolesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/RemoveRole", ReplyAction="http://tempuri.org/IRoleService/RemoveRoleResponse")]
-        void RemoveRole(Torq.WPF.RolesService.Role role);
+        void RemoveRole(Torq.Models.Objects.Role role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/RemoveRole", ReplyAction="http://tempuri.org/IRoleService/RemoveRoleResponse")]
-        System.Threading.Tasks.Task RemoveRoleAsync(Torq.WPF.RolesService.Role role);
+        System.Threading.Tasks.Task RemoveRoleAsync(Torq.Models.Objects.Role role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/UpdateRole", ReplyAction="http://tempuri.org/IRoleService/UpdateRoleResponse")]
-        Torq.WPF.RolesService.Role UpdateRole(Torq.WPF.RolesService.Role role);
+        Torq.Models.Objects.Role UpdateRole(Torq.Models.Objects.Role role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/UpdateRole", ReplyAction="http://tempuri.org/IRoleService/UpdateRoleResponse")]
-        System.Threading.Tasks.Task<Torq.WPF.RolesService.Role> UpdateRoleAsync(Torq.WPF.RolesService.Role role);
+        System.Threading.Tasks.Task<Torq.Models.Objects.Role> UpdateRoleAsync(Torq.Models.Objects.Role role);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -136,43 +73,43 @@ namespace Torq.WPF.RolesService {
                 base(binding, remoteAddress) {
         }
         
-        public Torq.WPF.RolesService.Role CreateRole(Torq.WPF.RolesService.Role role) {
+        public Torq.Models.Objects.Role CreateRole(Torq.Models.Objects.Role role) {
             return base.Channel.CreateRole(role);
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.RolesService.Role> CreateRoleAsync(Torq.WPF.RolesService.Role role) {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Role> CreateRoleAsync(Torq.Models.Objects.Role role) {
             return base.Channel.CreateRoleAsync(role);
         }
         
-        public Torq.WPF.RolesService.Role GetRoleById(int id) {
+        public Torq.Models.Objects.Role GetRoleById(int id) {
             return base.Channel.GetRoleById(id);
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.RolesService.Role> GetRoleByIdAsync(int id) {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Role> GetRoleByIdAsync(int id) {
             return base.Channel.GetRoleByIdAsync(id);
         }
         
-        public Torq.WPF.RolesService.Role[] GetRoles() {
+        public Torq.Models.Objects.Role[] GetRoles() {
             return base.Channel.GetRoles();
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.RolesService.Role[]> GetRolesAsync() {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Role[]> GetRolesAsync() {
             return base.Channel.GetRolesAsync();
         }
         
-        public void RemoveRole(Torq.WPF.RolesService.Role role) {
+        public void RemoveRole(Torq.Models.Objects.Role role) {
             base.Channel.RemoveRole(role);
         }
         
-        public System.Threading.Tasks.Task RemoveRoleAsync(Torq.WPF.RolesService.Role role) {
+        public System.Threading.Tasks.Task RemoveRoleAsync(Torq.Models.Objects.Role role) {
             return base.Channel.RemoveRoleAsync(role);
         }
         
-        public Torq.WPF.RolesService.Role UpdateRole(Torq.WPF.RolesService.Role role) {
+        public Torq.Models.Objects.Role UpdateRole(Torq.Models.Objects.Role role) {
             return base.Channel.UpdateRole(role);
         }
         
-        public System.Threading.Tasks.Task<Torq.WPF.RolesService.Role> UpdateRoleAsync(Torq.WPF.RolesService.Role role) {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Role> UpdateRoleAsync(Torq.Models.Objects.Role role) {
             return base.Channel.UpdateRoleAsync(role);
         }
     }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using Torq.DataAccess.Context;
-using Torq.Models.Objects;
 
 namespace Torq.DataService
 {
@@ -15,24 +14,29 @@ namespace Torq.DataService
 		public ScheduleService() { context.Configuration.ProxyCreationEnabled = false; }
 		public void Dispose() => context.Dispose();
 
-		public Schedule CreateSchedule(Schedule schedule)
+		public Torq.Models.Objects.Schedule CreateSchedule(Torq.Models.Objects.Schedule schedule)
 		{
 			context.Schedules.Add(schedule);
 			context.SaveChanges();
 			return GetScheduleById(schedule.Id);
 		}
 
-		public Schedule GetScheduleById(int id)
+		public Torq.Models.Objects.Schedule GetScheduleById(int id)
 		{
 			return context.Schedules.FirstOrDefault(s => s.Id == id);
 		}
 
-		public IEnumerable<Schedule> GetSchedules()
+		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedules()
 		{
 			return context.Schedules.ToList();
 		}
 
-		public void RemoveSchedule(Schedule schedule)
+		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByEmployee(Torq.Models.Objects.Employee employee)
+		{
+			return context.Schedules.Where(s => s.Employee.UserName == employee.UserName).ToList();
+		}
+
+		public void RemoveSchedule(Torq.Models.Objects.Schedule schedule)
 		{
 			var result = context.Schedules.FirstOrDefault(s => s.Id == schedule.Id);
 
@@ -40,7 +44,7 @@ namespace Torq.DataService
 			context.SaveChangesAsync();
 		}
 
-		public Schedule UpdateSchedule(Schedule schedule)
+		public Torq.Models.Objects.Schedule UpdateSchedule(Torq.Models.Objects.Schedule schedule)
 		{
 			var result = context.Schedules.FirstOrDefault(s => s.Id == schedule.Id);
 

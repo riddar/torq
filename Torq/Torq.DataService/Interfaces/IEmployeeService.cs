@@ -8,16 +8,16 @@ namespace Torq.DataService
 	public interface IEmployeeService
 	{
 		[OperationContract]
-		IEnumerable<Employee> GetEmployees();
+		IEnumerable<Torq.Models.Objects.Employee> GetEmployees();
 		[OperationContract]
-		Employee GetEmployeeById(int id);
+		Torq.Models.Objects.Employee GetEmployeeById(int id);
 		[OperationContract]
-		Employee GetEmployeeByUserName(string userName);
+		Torq.Models.Objects.Employee GetEmployeeByUserName(string userName);
 		[OperationContract]
-		Employee UpdateEmployee(Employee employee);
+		Torq.Models.Objects.Employee UpdateEmployee(Employee employee);
 		[OperationContract]
 		void RemoveEmployee(Employee employee);
 		[OperationContract]
-		Employee CreateEmployee(Employee employee);
+		Torq.Models.Objects.Employee CreateEmployee(Employee employee);
 	}
 }
