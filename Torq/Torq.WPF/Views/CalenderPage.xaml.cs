@@ -1,17 +1,25 @@
 ﻿using System.Windows.Controls;
-using Torq.WPF.EmployeesService;
+using Torq.Models.Objects;
+using Torq.WPF.SchedulesService;
 
 namespace Torq.WPF.Views
 {
 	public partial class CalenderPage : Page
-	{
-		Employee employee; 
-
-		public CalenderPage()
+	{ 
+		public CalenderPage(Employee employee)
 		{
 			InitializeComponent();
-			employee = new Employee() { Id=1, UserName="donald", Password="duck", FirstName="donald", LastName="duck" };
-			EmployeeLoggedIn.Content = employee.FirstName + " " + employee.LastName;
+			EmployeeLoggedIn.Content = employee?.FirstName + " " + employee?.LastName;
+
+			using (ScheduleServiceClient scheduleService = new ScheduleServiceClient())
+			{
+				Schedules_DataGrid.ItemsSource = scheduleService.GetSchedulesByEmployee(employee);
+			}
+		}
+
+		private void OnLogout(object sender, System.Windows.RoutedEventArgs e)
+		{
+			this.NavigationService.Navigate(new LoginPage());
 		}
 	}
 }

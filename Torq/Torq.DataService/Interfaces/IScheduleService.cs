@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
-using System.Threading.Tasks;
-using Torq.Models.Objects;
 
 namespace Torq.DataService
 {
@@ -9,14 +7,16 @@ namespace Torq.DataService
 	public interface IScheduleService
 	{
 		[OperationContract]
-		Schedule CreateSchedule(Schedule schedule);
+		Torq.Models.Objects.Schedule CreateSchedule(Torq.Models.Objects.Schedule schedule);
 		[OperationContract]
-		Schedule GetScheduleById(int id);
+		Torq.Models.Objects.Schedule GetScheduleById(int id);
 		[OperationContract]
-		IEnumerable<Schedule> GetSchedules();
+		IEnumerable<Torq.Models.Objects.Schedule> GetSchedules();
 		[OperationContract]
-		void RemoveSchedule(Schedule schedule);
+		IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByEmployee(Torq.Models.Objects.Employee employee);
 		[OperationContract]
-		Schedule UpdateSchedule(Schedule schedule);
+		void RemoveSchedule(Torq.Models.Objects.Schedule schedule);
+		[OperationContract]
+		Torq.Models.Objects.Schedule UpdateSchedule(Torq.Models.Objects.Schedule schedule);
 	}
 }

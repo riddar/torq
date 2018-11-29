@@ -57,6 +57,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\EmployeesService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\RolesService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\SchedulesService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -74,21 +84,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Connected Services\EmployeesService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\RolesService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\SalariesService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Page Include="Views\CalenderPage.xaml">
       <SubType>Designer</SubType>
@@ -131,9 +126,6 @@
     <None Include="Connected Services\EmployeesService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\EmployeesService\Torq.WPF.EmployeesService.Employee.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\RolesService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -144,22 +136,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RolesService\RoleService.wsdl" />
-    <None Include="Connected Services\RolesService\Torq.WPF.RolesService.Role.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SalariesService\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SalariesService\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SalariesService\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SalariesService\SalaryService.wsdl" />
-    <None Include="Connected Services\SalariesService\Torq.WPF.SalariesService.Salary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\SchedulesService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -170,9 +146,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SchedulesService\ScheduleService.wsdl" />
-    <None Include="Connected Services\SchedulesService\Torq.WPF.SchedulesService.Schedule.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
+    <None Include="Properties\DataSources\Torq.Models.Objects.Employee.datasource" />
+    <None Include="Properties\DataSources\Torq.Models.Objects.Role.datasource" />
+    <None Include="Properties\DataSources\Torq.Models.Objects.Schedule.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -187,38 +163,13 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\EmployeesService\" />
     <WCFMetadataStorage Include="Connected Services\RolesService\" />
-    <WCFMetadataStorage Include="Connected Services\SalariesService\" />
     <WCFMetadataStorage Include="Connected Services\SchedulesService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\RolesService\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\RolesService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\RolesService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\RolesService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SalariesService\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SalariesService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SalariesService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SalariesService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\Torq.Models\Torq.Models.csproj">
+      <Project>{afcee637-d44d-4f8a-a5b2-dff14a6ac320}</Project>
+      <Name>Torq.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\EmployeesService\item.disco" />
@@ -246,6 +197,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\SchedulesService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RolesService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RolesService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RolesService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RolesService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

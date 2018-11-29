@@ -9,14 +9,14 @@ namespace Torq.DataService
 	public interface IRoleService
 	{
 		[OperationContract]
-		Role CreateRole(Role role);
+		Torq.Models.Objects.Role CreateRole(Role role);
 		[OperationContract]
-		Role GetRoleById(int id);
+		Torq.Models.Objects.Role GetRoleById(int id);
 		[OperationContract]
-		IEnumerable<Role> GetRoles();
+		IEnumerable<Torq.Models.Objects.Role> GetRoles();
 		[OperationContract]
-		void RemoveRole(Role role);
+		void RemoveRole(Torq.Models.Objects.Role role);
 		[OperationContract]
-		Role UpdateRole(Role role);
+		Torq.Models.Objects.Role UpdateRole(Torq.Models.Objects.Role role);
 	}
 }
