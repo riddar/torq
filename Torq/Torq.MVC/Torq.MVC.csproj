@@ -169,6 +169,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -294,6 +295,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -320,6 +322,12 @@
     <WCFMetadataStorage Include="Connected Services\RolesService\" />
     <WCFMetadataStorage Include="Connected Services\SalariesService\" />
     <WCFMetadataStorage Include="Connected Services\SchedulesService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Torq.Models\Torq.Models.csproj">
+      <Project>{afcee637-d44d-4f8a-a5b2-dff14a6ac320}</Project>
+      <Name>Torq.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
