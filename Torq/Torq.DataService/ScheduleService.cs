@@ -41,6 +41,11 @@ namespace Torq.DataService
 			return context.Schedules.Where(s => s.EndTime.Day == date.Day).ToList();
 		}
 
+		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByMonth(DateTime date)
+		{
+			return context.Schedules.Where(s => s.EndTime.Month == date.Month).ToList();
+		}
+
 		public void RemoveSchedule(Torq.Models.Objects.Schedule schedule)
 		{
 			var result = context.Schedules.FirstOrDefault(s => s.Id == schedule.Id);

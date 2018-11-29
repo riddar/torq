@@ -18,6 +18,8 @@ namespace Torq.DataService
 		[OperationContract]
 		IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByDay(DateTime date);
 		[OperationContract]
+		IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByMonth(DateTime date);
+		[OperationContract]
 		void RemoveSchedule(Torq.Models.Objects.Schedule schedule);
 		[OperationContract]
 		Torq.Models.Objects.Schedule UpdateSchedule(Torq.Models.Objects.Schedule schedule);
