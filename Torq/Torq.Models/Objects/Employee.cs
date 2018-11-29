@@ -33,7 +33,7 @@ namespace Torq.Models.Objects
 		public string LoginError { get; set; }
 		[DataMember]
 		public virtual Role Role { get; set; }
-		[IgnoreDataMember]
+		[DataMember]
 		public virtual ICollection<Schedule> Schedules { get; set; }
 
 
