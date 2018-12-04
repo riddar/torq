@@ -4,63 +4,60 @@ using System.Linq;
 using System.Data.Entity;
 using System.ServiceModel;
 using Torq.DataAccess.Context;
+using Torq.Models.Objects;
 
 namespace Torq.DataService
 {
 	[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
-	public class ScheduleService : IDisposable, IScheduleService
+	public class ScheduleService : IEmployeeService, IDisposable
 	{
 		readonly TorqDBContext context = new TorqDBContext();
 
 		public ScheduleService() { context.Configuration.ProxyCreationEnabled = false; }
 		public void Dispose() => context.Dispose();
 
-		public Torq.Models.Objects.Schedule CreateSchedule(Torq.Models.Objects.Schedule schedule)
+		public Torq.Models.Objects.Employee CreateEmployee(Torq.Models.Objects.Employee employee)
 		{
-			context.Schedules.Add(schedule);
+			context.Employees.Add(employee);
 			context.SaveChanges();
-			return GetScheduleById(schedule.Id);
+			return GetEmployeeById(employee.Id);
 		}
 
-		public Torq.Models.Objects.Schedule GetScheduleById(int id)
+		public Torq.Models.Objects.Employee GetEmployeeById(int id)
 		{
-			return context.Schedules.Include(s => s.Employee).FirstOrDefault(s => s.Id == id);
+			return context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == id);
 		}
 
-		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedules()
+		public Torq.Models.Objects.Employee GetEmployeeByUserName(string userName)
 		{
-			return context.Schedules.Include(s => s.Employee).ToList();
+			return context.Employees.Include(e => e.Role).FirstOrDefault(e => e.UserName == userName);
 		}
 
-		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByEmployee(Torq.Models.Objects.Employee employee)
+		public IEnumerable<Torq.Models.Objects.Employee> GetEmployees()
 		{
-			return context.Schedules.Include(s => s.Employee).Where(s => s.Employee.UserName == employee.UserName).ToList();
+			return context.Employees.Include(e => e.Role);
 		}
 
-		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByDay(DateTime date)
+		public void RemoveEmployee(Torq.Models.Objects.Employee employee)
 		{
-			return context.Schedules.Include(s => s.Employee).Where(s => s.EndTime.Day == date.Day).ToList();
-		}
+			var result = context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == employee.Id);
 
-		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByMonth(DateTime date)
-		{
-			return context.Schedules.Include(s => s.Employee).Where(s => s.EndTime.Month == date.Month).ToList();
-		}
-
-		public void RemoveSchedule(Torq.Models.Objects.Schedule schedule)
-		{
-			var result = GetScheduleById(schedule.Id);
-
-			context.Schedules.Remove(result);
-			context.SaveChangesAsync();
-		}
-
-		public Torq.Models.Objects.Schedule UpdateSchedule(Torq.Models.Objects.Schedule schedule)
-		{
-			var original = GetScheduleById(schedule.Id);
-			original.Employee = schedule.Employee;
+			context.Employees.Remove(result);
 			context.SaveChanges();
-			return original;
 		}
+
+		public Torq.Models.Objects.Employee UpdateEmployee(Torq.Models.Objects.Employee employee)
+		{
+			var result = context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == employee.Id);
+
+			if (result == null)
+				return null;
+
+			context.Entry(result).CurrentValues.SetValues(employee);
+			context.SaveChanges();
+
+			return employee;
+		}
+
 	}
 }

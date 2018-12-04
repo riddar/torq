@@ -7,6 +7,8 @@ namespace Torq.Models.Objects
 	[DataContract]
 	public partial class Schedule
 	{
+		public Schedule() { }
+
 		[Key]
 		[DataMember]
 		public int Id { get; set; }
