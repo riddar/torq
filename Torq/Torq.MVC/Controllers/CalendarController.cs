@@ -11,7 +11,7 @@ namespace Torq.MVC.Controllers
 {
     public class CalendarController : Controller
     {
-        
+
         // GET: Calendar
         public ActionResult Index()
         {
@@ -57,13 +57,70 @@ namespace Torq.MVC.Controllers
         {
             schedule.ClockedIn = false;
             var x = schedule;
-            
+
             using (ScheduleServiceClient db = new ScheduleServiceClient())
             {
                 db.CreateSchedule(schedule);
             }
 
-                return Redirect("~/calendar/index");
+            return Redirect("~/calendar/index");
         }
+
+        public ActionResult EditSchedule(int id)
+        {
+
+            using (ScheduleServiceClient db = new ScheduleServiceClient())
+            {
+                using (EmployeeServiceClient edb = new EmployeeServiceClient())
+                {
+                    var schedule = db.GetScheduleById(id);
+                    var x = edb.GetEmployees();
+                    ViewData["Employees"] = edb.GetEmployees();
+                    return View(schedule);
+                }
+            }
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditSchedule([Bind(Include = "Id,ClockedIn,StartTime,EndTime,Employee")] Schedule schedule)
+        {
+
+            using (ScheduleServiceClient db = new ScheduleServiceClient())
+            {
+                using (EmployeeServiceClient edb = new EmployeeServiceClient())
+                {
+                    Employee x = edb.GetEmployeeById(schedule.Employee.Id);
+                    schedule.Employee = x;
+                    //TODO: updaterar ej employee, behöver fkey endast vara EmployeeId?
+                    db.UpdateScheduleAsync(schedule);
+                    
+                }
+            }
+            return Redirect("~/calendar/index");
+        }
+
+        public ActionResult CreateEmployee()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateEmployee([Bind(Include = "UserName,Password,FirstName,LastName,Email,IsOnline")] Employee employee)
+        {
+            using (EmployeeServiceClient edb = new EmployeeServiceClient())
+            {
+                edb.CreateEmployeeAsync(employee);
+
+                return Redirect("~/calendar/index");
+            }
+        }
+
+
     }
+
+
 }
