@@ -44,8 +44,12 @@ namespace Torq.DataService
 		{
 			var result = context.Schedules.Include(s => s.Employee).FirstOrDefault(s => s.Id == schedule.Id);
 
+			if (schedule.Employee != null)
+				schedule.Employee = context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == schedule.Employee_Id);
+
+
 			if (result == null)
-				return null;
+				context.Schedules.Add(schedule);
 
 			context.Entry(result).CurrentValues.SetValues(schedule);
 			context.SaveChanges();
@@ -66,6 +70,11 @@ namespace Torq.DataService
 		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByMonth(DateTime date)
 		{
 			return context.Schedules.Include(e => e.Employee).Where(s => s.EndTime.Month == date.Month);
+		}
+
+		public Torq.Models.Objects.Employee GetEmployeeById(int id)
+		{
+			return context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == id);
 		}
 	}
 }
