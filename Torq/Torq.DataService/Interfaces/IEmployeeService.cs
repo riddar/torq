@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
-using Torq.Models.Objects;
 
 namespace Torq.DataService
 {
@@ -14,10 +13,10 @@ namespace Torq.DataService
 		[OperationContract]
 		Torq.Models.Objects.Employee GetEmployeeByUserName(string userName);
 		[OperationContract]
-		Torq.Models.Objects.Employee UpdateEmployee(Employee employee);
+		Torq.Models.Objects.Employee UpdateEmployee(Torq.Models.Objects.Employee employee);
 		[OperationContract]
-		void RemoveEmployee(Employee employee);
+		void RemoveEmployee(Torq.Models.Objects.Employee employee);
 		[OperationContract]
-		Torq.Models.Objects.Employee CreateEmployee(Employee employee);
+		Torq.Models.Objects.Employee CreateEmployee(Torq.Models.Objects.Employee employee);
 	}
 }
