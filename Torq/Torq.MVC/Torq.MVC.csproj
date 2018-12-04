@@ -289,6 +289,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\Login\LoginPage.cshtml" />
+    <Content Include="Views\Calendar\CreateEmployee.cshtml" />
+    <Content Include="Views\Calendar\CreateSchedule.cshtml" />
+    <Content Include="Views\Calendar\EditSchedule.cshtml" />
+    <Content Include="Views\Calendar\CreateSalary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
