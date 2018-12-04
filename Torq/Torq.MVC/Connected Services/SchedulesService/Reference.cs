@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Torq.MVC.SchedualsService {
+namespace Torq.MVC.SchedulesService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SchedualsService.IScheduleService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SchedulesService.IScheduleService")]
     public interface IScheduleService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/CreateSchedule", ReplyAction="http://tempuri.org/IScheduleService/CreateScheduleResponse")]
@@ -33,6 +33,24 @@ namespace Torq.MVC.SchedualsService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedules", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesResponse")]
         System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByEmployee", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByEmployeeResponse")]
+        Torq.Models.Objects.Schedule[] GetSchedulesByEmployee(Torq.Models.Objects.Employee employee);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByEmployee", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByEmployeeResponse")]
+        System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByEmployeeAsync(Torq.Models.Objects.Employee employee);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByDay", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByDayResponse")]
+        Torq.Models.Objects.Schedule[] GetSchedulesByDay(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByDay", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByDayResponse")]
+        System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByDayAsync(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByMonth", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByMonthResponse")]
+        Torq.Models.Objects.Schedule[] GetSchedulesByMonth(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/GetSchedulesByMonth", ReplyAction="http://tempuri.org/IScheduleService/GetSchedulesByMonthResponse")]
+        System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByMonthAsync(System.DateTime date);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScheduleService/RemoveSchedule", ReplyAction="http://tempuri.org/IScheduleService/RemoveScheduleResponse")]
         void RemoveSchedule(Torq.Models.Objects.Schedule schedule);
         
@@ -47,12 +65,12 @@ namespace Torq.MVC.SchedualsService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IScheduleServiceChannel : Torq.MVC.SchedualsService.IScheduleService, System.ServiceModel.IClientChannel {
+    public interface IScheduleServiceChannel : Torq.MVC.SchedulesService.IScheduleService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ScheduleServiceClient : System.ServiceModel.ClientBase<Torq.MVC.SchedualsService.IScheduleService>, Torq.MVC.SchedualsService.IScheduleService {
+    public partial class ScheduleServiceClient : System.ServiceModel.ClientBase<Torq.MVC.SchedulesService.IScheduleService>, Torq.MVC.SchedulesService.IScheduleService {
         
         public ScheduleServiceClient() {
         }
@@ -95,6 +113,30 @@ namespace Torq.MVC.SchedualsService {
         
         public System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesAsync() {
             return base.Channel.GetSchedulesAsync();
+        }
+        
+        public Torq.Models.Objects.Schedule[] GetSchedulesByEmployee(Torq.Models.Objects.Employee employee) {
+            return base.Channel.GetSchedulesByEmployee(employee);
+        }
+        
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByEmployeeAsync(Torq.Models.Objects.Employee employee) {
+            return base.Channel.GetSchedulesByEmployeeAsync(employee);
+        }
+        
+        public Torq.Models.Objects.Schedule[] GetSchedulesByDay(System.DateTime date) {
+            return base.Channel.GetSchedulesByDay(date);
+        }
+        
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByDayAsync(System.DateTime date) {
+            return base.Channel.GetSchedulesByDayAsync(date);
+        }
+        
+        public Torq.Models.Objects.Schedule[] GetSchedulesByMonth(System.DateTime date) {
+            return base.Channel.GetSchedulesByMonth(date);
+        }
+        
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Schedule[]> GetSchedulesByMonthAsync(System.DateTime date) {
+            return base.Channel.GetSchedulesByMonthAsync(date);
         }
         
         public void RemoveSchedule(Torq.Models.Objects.Schedule schedule) {

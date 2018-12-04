@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Controls;
 using Torq.Models.Objects;
-using Torq.WPF.SchedulesService;
+using Torq.WPF.SchedualsService;
 
 namespace Torq.WPF.Views
 {

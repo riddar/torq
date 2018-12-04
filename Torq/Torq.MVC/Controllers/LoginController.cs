@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Torq.Models.Objects;
 using Torq.MVC.EmployeesService;
 
 namespace Torq.MVC.Controllers

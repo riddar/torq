@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-<<<<<<< HEAD
-using Torq.MVC.SchedulesService;
-=======
 using Torq.Models.Objects;
 using Torq.MVC.EmployeesService;
-using Torq.MVC.SchedualsService;
->>>>>>> tobikvist
+using Torq.MVC.SchedulesService;
 
 namespace Torq.MVC.Controllers
 {
