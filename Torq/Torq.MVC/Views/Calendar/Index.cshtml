@@ -81,21 +81,21 @@
         {
 
             let x = document.createElement("A");
-            let t = document.createTextNode("Link");
-            x.setAttribute("href", "TODO");
+            let t = document.createTextNode("Edit");
+            x.setAttribute("href", "editschedule/" + FilterdDates[ii].Id);
             x.appendChild(t);
 
             if (FilterdDates[ii].Employee === null) {
                 let li = document.createElement('li');
                 Aul.appendChild(li);
-                li.innerHTML += FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime;
+                li.innerHTML += FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
                 li.appendChild(x);
 
             }
             else {
                 li = document.createElement('li');
                 Bul.appendChild(li);
-                li.innerHTML += FilterdDates[ii].Employee.FirstName + " " + FilterdDates[ii].Employee.LastName + ": " + FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime;
+                li.innerHTML += FilterdDates[ii].Employee.FirstName + " " + FilterdDates[ii].Employee.LastName + ": " + FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
             }
         }
         console.log(FilterdDates.length);
