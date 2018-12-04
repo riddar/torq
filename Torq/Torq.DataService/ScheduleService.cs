@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.ServiceModel;
 using Torq.DataAccess.Context;
 
@@ -23,32 +24,32 @@ namespace Torq.DataService
 
 		public Torq.Models.Objects.Schedule GetScheduleById(int id)
 		{
-			return context.Schedules.FirstOrDefault(s => s.Id == id);
+			return context.Schedules.Include(s => s.Employee).FirstOrDefault(s => s.Id == id);
 		}
 
 		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedules()
 		{
-			return context.Schedules.ToList();
+			return context.Schedules.Include(s => s.Employee).ToList();
 		}
 
 		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByEmployee(Torq.Models.Objects.Employee employee)
 		{
-			return context.Schedules.Where(s => s.Employee.UserName == employee.UserName).ToList();
+			return context.Schedules.Include(s => s.Employee).Where(s => s.Employee.UserName == employee.UserName).ToList();
 		}
 
 		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByDay(DateTime date)
 		{
-			return context.Schedules.Where(s => s.EndTime.Day == date.Day).ToList();
+			return context.Schedules.Include(s => s.Employee).Where(s => s.EndTime.Day == date.Day).ToList();
 		}
 
 		public IEnumerable<Torq.Models.Objects.Schedule> GetSchedulesByMonth(DateTime date)
 		{
-			return context.Schedules.Where(s => s.EndTime.Month == date.Month).ToList();
+			return context.Schedules.Include(s => s.Employee).Where(s => s.EndTime.Month == date.Month).ToList();
 		}
 
 		public void RemoveSchedule(Torq.Models.Objects.Schedule schedule)
 		{
-			var result = context.Schedules.FirstOrDefault(s => s.Id == schedule.Id);
+			var result = context.Schedules.Include(s => s.Employee).FirstOrDefault(s => s.Id == schedule.Id);
 
 			context.Schedules.Remove(result);
 			context.SaveChangesAsync();
@@ -56,7 +57,7 @@ namespace Torq.DataService
 
 		public Torq.Models.Objects.Schedule UpdateSchedule(Torq.Models.Objects.Schedule schedule)
 		{
-			var result = context.Schedules.FirstOrDefault(s => s.Id == schedule.Id);
+			var result = context.Schedules.Include(s => s.Employee).FirstOrDefault(s => s.Id == schedule.Id);
 
 			if (result == null)
 				return null;
