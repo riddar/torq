@@ -57,18 +57,10 @@ namespace Torq.DataService
 
 		public Torq.Models.Objects.Schedule UpdateSchedule(Torq.Models.Objects.Schedule schedule)
 		{
-			if (schedule == null)
-				return null;
-
-			var result = GetScheduleById(schedule.Id);
-
-			if (result != null)
-				context.Schedules.Remove(result);
-
-			context.Schedules.Add(schedule);
+			var original = GetScheduleById(schedule.Id);
+			original.Employee = schedule.Employee;
 			context.SaveChanges();
-
-			return result;
+			return original;
 		}
 	}
 }
