@@ -15,11 +15,8 @@ namespace Torq.Models.Objects
 		[DataMember]
 		public int Id { get; set; }
 		[DataMember]
-		[DisplayName("User Name")]
-		[Required(ErrorMessage ="username is Required")]
 		public string UserName { get; set; }
 		[DataMember]
-		[Required(ErrorMessage = "Password is Required")]
 		public string Password { get; set; }
 		[DataMember]
 		public string FirstName { get; set; }
