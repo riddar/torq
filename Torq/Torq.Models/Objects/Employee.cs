@@ -9,7 +9,7 @@ namespace Torq.Models.Objects
 	[DataContract]
 	public partial class Employee
 	{
-		public Employee() => this.Schedules = new HashSet<Schedule>();
+		public Employee() => this.Schedules = new List<Schedule>();
 
 		[Key]
 		[DataMember]
@@ -34,7 +34,7 @@ namespace Torq.Models.Objects
 		[DataMember]
 		public virtual Role Role { get; set; }
 		[DataMember]
-		public virtual ICollection<Schedule> Schedules { get; set; }
+		public virtual List<Schedule> Schedules { get; set; }
 
 
 	}

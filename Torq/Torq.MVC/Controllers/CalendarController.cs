@@ -74,6 +74,7 @@ namespace Torq.MVC.Controllers
             return Redirect("~/calendar/index");
         }
 
+		[HttpGet]
         public ActionResult EditSchedule(int id)
         {
 

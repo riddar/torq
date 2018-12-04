@@ -7,13 +7,13 @@ namespace Torq.Models.Objects
 	[DataContract]
 	public partial class Role
 	{
-		public Role() => this.Employees = new HashSet<Employee>();
+		public Role() => this.Employees = new List<Employee>();
 		[Key]
 		[DataMember]
 		public int Id { get; set; }
 		[DataMember]
 		public string Title { get; set; }
 		[IgnoreDataMember]
-		public ICollection<Employee> Employees { get; set; }
+		public List<Employee> Employees { get; set; }
 	}
 }
