@@ -18,8 +18,10 @@
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IsOnline" type="xs:boolean" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginError" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Role" nillable="true" type="tns:Role" />
+      <xs:element minOccurs="0" name="Schedules" nillable="true" type="tns:ArrayOfSchedule" />
       <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -31,6 +33,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Role" nillable="true" type="tns:Role" />
+  <xs:complexType name="ArrayOfSchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schedule" nillable="true" type="tns:Schedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchedule" nillable="true" type="tns:ArrayOfSchedule" />
   <xs:complexType name="Salary">
     <xs:sequence>
       <xs:element minOccurs="0" name="Amount" type="xs:int" />
@@ -39,10 +47,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Salary" nillable="true" type="tns:Salary" />
-  <xs:complexType name="ArrayOfSchedule">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schedule" nillable="true" type="tns:Schedule" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfSchedule" nillable="true" type="tns:ArrayOfSchedule" />
 </xs:schema>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Controls;
-using Torq.WPF.SchedulesService;
+using Torq.WPF.SchedualsService;
 
 namespace Torq.WPF.Views
 {
