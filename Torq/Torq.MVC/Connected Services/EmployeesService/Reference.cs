@@ -9,8 +9,6 @@
 //------------------------------------------------------------------------------
 
 namespace Torq.MVC.EmployeesService {
-    using System.Runtime.Serialization;
-    using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -252,40 +250,40 @@ namespace Torq.MVC.EmployeesService {
     public interface IEmployeeService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployees", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeesResponse")]
-        Torq.MVC.EmployeesService.Employee[] GetEmployees();
+        Torq.Models.Objects.Employee[] GetEmployees();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployees", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeesResponse")]
-        System.Threading.Tasks.Task<Torq.MVC.EmployeesService.Employee[]> GetEmployeesAsync();
+        System.Threading.Tasks.Task<Torq.Models.Objects.Employee[]> GetEmployeesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeById", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeByIdResponse")]
-        Torq.MVC.EmployeesService.Employee GetEmployeeById(int id);
+        Torq.Models.Objects.Employee GetEmployeeById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeById", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeByIdResponse")]
-        System.Threading.Tasks.Task<Torq.MVC.EmployeesService.Employee> GetEmployeeByIdAsync(int id);
+        System.Threading.Tasks.Task<Torq.Models.Objects.Employee> GetEmployeeByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeByUserName", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeByUserNameResponse")]
-        Torq.MVC.EmployeesService.Employee GetEmployeeByUserName(string userName);
+        Torq.Models.Objects.Employee GetEmployeeByUserName(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeByUserName", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeByUserNameResponse")]
-        System.Threading.Tasks.Task<Torq.MVC.EmployeesService.Employee> GetEmployeeByUserNameAsync(string userName);
+        System.Threading.Tasks.Task<Torq.Models.Objects.Employee> GetEmployeeByUserNameAsync(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/UpdateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/UpdateEmployeeResponse")]
-        Torq.MVC.EmployeesService.Employee UpdateEmployee(Torq.MVC.EmployeesService.Employee employee);
+        Torq.Models.Objects.Employee UpdateEmployee(Torq.Models.Objects.Employee employee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/UpdateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/UpdateEmployeeResponse")]
-        System.Threading.Tasks.Task<Torq.MVC.EmployeesService.Employee> UpdateEmployeeAsync(Torq.MVC.EmployeesService.Employee employee);
+        System.Threading.Tasks.Task<Torq.Models.Objects.Employee> UpdateEmployeeAsync(Torq.Models.Objects.Employee employee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/RemoveEmployee", ReplyAction="http://tempuri.org/IEmployeeService/RemoveEmployeeResponse")]
-        void RemoveEmployee(Torq.MVC.EmployeesService.Employee employee);
+        void RemoveEmployee(Torq.Models.Objects.Employee employee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/RemoveEmployee", ReplyAction="http://tempuri.org/IEmployeeService/RemoveEmployeeResponse")]
-        System.Threading.Tasks.Task RemoveEmployeeAsync(Torq.MVC.EmployeesService.Employee employee);
+        System.Threading.Tasks.Task RemoveEmployeeAsync(Torq.Models.Objects.Employee employee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/CreateEmployeeResponse")]
-        Torq.MVC.EmployeesService.Employee CreateEmployee(Torq.MVC.EmployeesService.Employee employee);
+        Torq.Models.Objects.Employee CreateEmployee(Torq.Models.Objects.Employee employee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/IEmployeeService/CreateEmployeeResponse")]
-        System.Threading.Tasks.Task<Torq.MVC.EmployeesService.Employee> CreateEmployeeAsync(Torq.MVC.EmployeesService.Employee employee);
+        System.Threading.Tasks.Task<Torq.Models.Objects.Employee> CreateEmployeeAsync(Torq.Models.Objects.Employee employee);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -315,51 +313,51 @@ namespace Torq.MVC.EmployeesService {
                 base(binding, remoteAddress) {
         }
         
-        public Torq.MVC.EmployeesService.Employee[] GetEmployees() {
+        public Torq.Models.Objects.Employee[] GetEmployees() {
             return base.Channel.GetEmployees();
         }
         
-        public System.Threading.Tasks.Task<Torq.MVC.EmployeesService.Employee[]> GetEmployeesAsync() {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Employee[]> GetEmployeesAsync() {
             return base.Channel.GetEmployeesAsync();
         }
         
-        public Torq.MVC.EmployeesService.Employee GetEmployeeById(int id) {
+        public Torq.Models.Objects.Employee GetEmployeeById(int id) {
             return base.Channel.GetEmployeeById(id);
         }
         
-        public System.Threading.Tasks.Task<Torq.MVC.EmployeesService.Employee> GetEmployeeByIdAsync(int id) {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Employee> GetEmployeeByIdAsync(int id) {
             return base.Channel.GetEmployeeByIdAsync(id);
         }
         
-        public Torq.MVC.EmployeesService.Employee GetEmployeeByUserName(string userName) {
+        public Torq.Models.Objects.Employee GetEmployeeByUserName(string userName) {
             return base.Channel.GetEmployeeByUserName(userName);
         }
         
-        public System.Threading.Tasks.Task<Torq.MVC.EmployeesService.Employee> GetEmployeeByUserNameAsync(string userName) {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Employee> GetEmployeeByUserNameAsync(string userName) {
             return base.Channel.GetEmployeeByUserNameAsync(userName);
         }
         
-        public Torq.MVC.EmployeesService.Employee UpdateEmployee(Torq.MVC.EmployeesService.Employee employee) {
+        public Torq.Models.Objects.Employee UpdateEmployee(Torq.Models.Objects.Employee employee) {
             return base.Channel.UpdateEmployee(employee);
         }
         
-        public System.Threading.Tasks.Task<Torq.MVC.EmployeesService.Employee> UpdateEmployeeAsync(Torq.MVC.EmployeesService.Employee employee) {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Employee> UpdateEmployeeAsync(Torq.Models.Objects.Employee employee) {
             return base.Channel.UpdateEmployeeAsync(employee);
         }
         
-        public void RemoveEmployee(Torq.MVC.EmployeesService.Employee employee) {
+        public void RemoveEmployee(Torq.Models.Objects.Employee employee) {
             base.Channel.RemoveEmployee(employee);
         }
         
-        public System.Threading.Tasks.Task RemoveEmployeeAsync(Torq.MVC.EmployeesService.Employee employee) {
+        public System.Threading.Tasks.Task RemoveEmployeeAsync(Torq.Models.Objects.Employee employee) {
             return base.Channel.RemoveEmployeeAsync(employee);
         }
         
-        public Torq.MVC.EmployeesService.Employee CreateEmployee(Torq.MVC.EmployeesService.Employee employee) {
+        public Torq.Models.Objects.Employee CreateEmployee(Torq.Models.Objects.Employee employee) {
             return base.Channel.CreateEmployee(employee);
         }
         
-        public System.Threading.Tasks.Task<Torq.MVC.EmployeesService.Employee> CreateEmployeeAsync(Torq.MVC.EmployeesService.Employee employee) {
+        public System.Threading.Tasks.Task<Torq.Models.Objects.Employee> CreateEmployeeAsync(Torq.Models.Objects.Employee employee) {
             return base.Channel.CreateEmployeeAsync(employee);
         }
     }

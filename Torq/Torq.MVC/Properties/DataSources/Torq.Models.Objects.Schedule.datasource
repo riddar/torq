@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="Schedule" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Torq.MVC.SchedulesService.Schedule, Connected Services.SchedulesService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>Torq.Models.Objects.Schedule, Torq.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>
