@@ -129,6 +129,12 @@ namespace Torq.MVC.Controllers
         }
 
 
+        public ActionResult CreateSalary()
+        {
+            return View();
+        }
+
+
     }
 
 
