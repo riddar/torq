@@ -1,4 +1,8 @@
-﻿
+﻿@{
+    DateTime dt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+}
+
+
 
 <div class="month">
     <ul>
@@ -9,24 +13,57 @@
 </div>
 
 <ul class="weekdays">
-    @{ for (int i = 0; i < 7; i++)
-        {
-            <li>@Torq.MVC.DateHandler.GetDayOfWeek(i);</li>
-        }
-    }
+    <li>Monday</li>
+    <li>Thuseday</li>
+    <li>Wendsday</li>
+    <li>Thursday</li>
+    <li>Friday</li>
+    <li>Saturday</li>
+    <li>Sunday</li>
 </ul>
 
 <ul class="days">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-    <li>6</li>
-    <li>7</li>
-    <li>8</li>
-    <li>9</li>
-    <li><span class="active">10</span></li>
-    <li>11</li>
-    ...etc
+    @{
+        int daysToJump = 0;
+
+        if (dt.DayOfWeek == DayOfWeek.Monday)
+        {
+            daysToJump = 0;
+        }
+        else if (dt.DayOfWeek == DayOfWeek.Tuesday)
+        {
+            daysToJump = 1;
+        }
+        else if (dt.DayOfWeek == DayOfWeek.Wednesday)
+        {
+            daysToJump = 2;
+        }
+        else if (dt.DayOfWeek == DayOfWeek.Thursday)
+        {
+            daysToJump = 3;
+        }
+        else if (dt.DayOfWeek == DayOfWeek.Friday)
+        {
+            daysToJump = 4;
+        }
+        else if (dt.DayOfWeek == DayOfWeek.Saturday)
+        {
+            daysToJump = 5;
+        }
+        else if (dt.DayOfWeek == DayOfWeek.Saturday)
+        {
+            daysToJump = 6;
+        }
+
+        for (int i = 0; i < daysToJump; i++)
+        {
+            <li>*</li>
+        }
+        for (int i = 1; i <= DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month); i++)
+        {
+            <li>@i</li>
+        }
+    }
+
+
 </ul>
