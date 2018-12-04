@@ -49,7 +49,7 @@ namespace Torq.DataService
 
 		public void RemoveSchedule(Torq.Models.Objects.Schedule schedule)
 		{
-			var result = context.Schedules.Include(s => s.Employee).FirstOrDefault(s => s.Id == schedule.Id);
+			var result = GetScheduleById(schedule.Id);
 
 			context.Schedules.Remove(result);
 			context.SaveChangesAsync();
@@ -57,15 +57,18 @@ namespace Torq.DataService
 
 		public Torq.Models.Objects.Schedule UpdateSchedule(Torq.Models.Objects.Schedule schedule)
 		{
-			var result = context.Schedules.Include(s => s.Employee).FirstOrDefault(s => s.Id == schedule.Id);
-
-			if (result == null)
+			if (schedule == null)
 				return null;
 
-			context.Entry(result).CurrentValues.SetValues(schedule);
+			var result = GetScheduleById(schedule.Id);
+
+			if (result != null)
+				context.Schedules.Remove(result);
+
+			context.Schedules.Add(schedule);
 			context.SaveChanges();
 
-			return schedule;
+			return result;
 		}
 	}
 }
