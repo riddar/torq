@@ -164,6 +164,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\SchedulesService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -192,6 +197,13 @@
     <None Include="Connected Services\SalariesService\configuration91.svcinfo" />
     <None Include="Connected Services\SalariesService\configuration.svcinfo" />
     <None Include="Connected Services\SalariesService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\SchedulesService\item.disco" />
+    <None Include="Connected Services\SchedulesService\configuration91.svcinfo" />
+    <None Include="Connected Services\SchedulesService\configuration.svcinfo" />
+    <None Include="Connected Services\SchedulesService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -241,6 +253,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SalariesService\SalaryService.wsdl" />
+    <None Include="Connected Services\SchedulesService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SchedulesService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SchedulesService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SchedulesService\ScheduleService.wsdl" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -298,6 +320,7 @@
     <WCFMetadataStorage Include="Connected Services\EmployeesService\" />
     <WCFMetadataStorage Include="Connected Services\RolesService\" />
     <WCFMetadataStorage Include="Connected Services\SalariesService\" />
+    <WCFMetadataStorage Include="Connected Services\SchedulesService\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Torq.MethodLiberary\Torq.MethodLiberary.csproj">
