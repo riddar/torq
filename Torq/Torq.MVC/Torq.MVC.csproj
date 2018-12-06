@@ -293,6 +293,7 @@
     <Content Include="Views\Calendar\CreateSchedule.cshtml" />
     <Content Include="Views\Calendar\EditSchedule.cshtml" />
     <Content Include="Views\Calendar\CreateSalary.cshtml" />
+    <Content Include="Views\Calendar\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
