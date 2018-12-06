@@ -66,15 +66,15 @@ namespace Torq.WPF.Views
 
 		public int GetWeekNumberOfMonth(DateTime date)
 		{
-			date = date.Date;
-			DateTime firstMonthDay = new DateTime(date.Year, date.Month, 1);
-			DateTime firstMonthMonday = firstMonthDay.AddDays((DayOfWeek.Monday + 7 - firstMonthDay.DayOfWeek) % 7);
-			if (firstMonthMonday > date)
-			{
-				firstMonthDay = firstMonthDay.AddMonths(-1);
-				firstMonthMonday = firstMonthDay.AddDays((DayOfWeek.Monday + 7 - firstMonthDay.DayOfWeek) % 7);
-			}
-			return (date - firstMonthMonday).Days / 7 + 1;
+			int mondays = 0;
+			int month = date.Month;
+			int year = date.Year;
+			int daysThisMonth = DateTime.DaysInMonth(year, month);
+			DateTime beginingOfThisMonth = new DateTime(year, month, 1);
+			for (int i = 0; i < daysThisMonth; i++)
+				if (beginingOfThisMonth.AddDays(i).DayOfWeek == DayOfWeek.Monday)
+					mondays++;
+			return mondays;
 		}
 
 		private void OnLogout(object sender, System.Windows.RoutedEventArgs e)
