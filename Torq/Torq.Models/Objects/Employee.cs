@@ -9,8 +9,6 @@ namespace Torq.Models.Objects
 	[DataContract]
 	public partial class Employee
 	{
-		public Employee() => this.Schedules = new List<Schedule>();
-
 		[Key]
 		[DataMember]
 		public int Id { get; set; }
@@ -29,9 +27,12 @@ namespace Torq.Models.Objects
 		[DataMember]
 		public string LoginError { get; set; }
 		[DataMember]
+		public int? RoleId { get; set; }
+		[IgnoreDataMember]
+		[ForeignKey("RoleId")]
 		public virtual Role Role { get; set; }
 		[DataMember]
-		public virtual List<Schedule> Schedules { get; set; }
+		public virtual IList<Schedule> Schedules { get; set; }
 
 
 	}

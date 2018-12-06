@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
 namespace Torq.Models.Objects
@@ -19,8 +20,14 @@ namespace Torq.Models.Objects
 		[DataMember]
 		public DateTime EndTime { get; set; }
 		[DataMember]
+		public int? EmployeeId { get; set; }
+		[IgnoreDataMember]
+		[ForeignKey("EmployeeId")]
 		public virtual Employee Employee { get; set; }
 		[DataMember]
+		public int? SalaryId { get; set; }
+		[IgnoreDataMember]
+		[ForeignKey("SalaryId")]
 		public virtual Salary Salary { get; set; }
 	}
 }
