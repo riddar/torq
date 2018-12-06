@@ -52,7 +52,7 @@
     <Compile Include="Objects\Employee.cs" />
     <Compile Include="Objects\Role.cs" />
     <Compile Include="Objects\Salary.cs" />
-    <Compile Include="Objects\Schema.cs" />
+    <Compile Include="Objects\Schedule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

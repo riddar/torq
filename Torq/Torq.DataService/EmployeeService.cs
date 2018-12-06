@@ -25,17 +25,22 @@ namespace Torq.DataService
 
 		public Employee GetEmployeeById(int id)
 		{
-			return context.Employees.FirstOrDefault(e => e.Id == id);
+			return context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == id);
 		}
 
-		public List<Employee> GetEmployees()
+		public Employee GetEmployeeByUserName(string userName)
 		{
-			return context.Employees.Include(e => e.Role).ToList();
+			return context.Employees.Include(e => e.Role).FirstOrDefault(e => e.UserName == userName);
+		}
+
+		public IEnumerable<Employee> GetEmployees()
+		{
+			return context.Employees.Include(e => e.Role);
 		}
 
 		public void RemoveEmployee(Employee employee)
 		{
-			var result = context.Employees.FirstOrDefault(e => e.Id == employee.Id);
+			var result = context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == employee.Id);
 
 			context.Employees.Remove(result);
 			context.SaveChanges();
@@ -43,7 +48,7 @@ namespace Torq.DataService
 
 		public Employee UpdateEmployee(Employee employee)
 		{
-			var result = context.Employees.FirstOrDefault(e => e.Id == employee.Id);
+			var result = context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == employee.Id);
 
 			if (result == null)
 				return null;

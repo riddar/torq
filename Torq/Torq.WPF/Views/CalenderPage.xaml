@@ -1,0 +1,55 @@
+﻿<Page x:Class="Torq.WPF.Views.CalenderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Torq.WPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TORQ" Height="450" Width="800" HorizontalAlignment="Center">
+
+    <StackPanel>
+        <TabControl x:Name="MainWindow_TabControl" Height="420">
+            <TabItem x:Name="TabItem_Calendar" Header="Calendar">
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition  />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Column="0" Content="Previus Month" Margin="5" />
+                    <Button Grid.Column="2" Content="Next Month" Margin="5"/>
+                    <Label Grid.Column="1" Content="Month" HorizontalAlignment="Center"  Margin="5" />
+                    <DataGrid Grid.Row="1" Grid.ColumnSpan="3"  Margin="5"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItem_Salary" Header="Salary">
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition  />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Column="0" Content="Button" Margin="5"/>
+                    <Button Grid.Column="2" Content="Button" Margin="5"/>
+                    <Label  Grid.Column="1" Content="Month" HorizontalAlignment="Center" Margin="5"/>
+                    <DataGrid Grid.Row="1" Grid.ColumnSpan="3" Margin="5"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <StatusBar>
+            <Label Content="Logged in user:"/>
+            <Label Name="EmployeeLoggedIn" Content="Donald Duck"/>
+            <Button Content="Log Out"/>
+        </StatusBar>
+    </StackPanel>
+</Page>

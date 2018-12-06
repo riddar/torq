@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{674CC4CA-1696-4C92-AA88-0932EF338BCF}</ProjectGuid>
+    <ProjectGuid>{4AAEFC53-E5D7-4C52-85CD-8720459EB0CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Torq.MVC.Tests</RootNamespace>
@@ -100,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Torq.MVC\Torq.MVC.csproj">
-      <Project>{2E99BE31-C01D-45CF-83B4-EFA3CF659031}</Project>
+      <Project>{5A62D800-0B0C-4884-A44A-FAB922F9A54A}</Project>
       <Name>Torq.MVC</Name>
     </ProjectReference>
   </ItemGroup>

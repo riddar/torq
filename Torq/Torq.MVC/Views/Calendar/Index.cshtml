@@ -1,7 +1,105 @@
 ﻿
+@model Torq.Models.Objects.Schema[]
 @{
-    ViewBag.Title = "Calendar";
+    ViewBag.Title = "Index";
 }
 
-@Html.Partial("_MonthPartial")
+<head>
+    <link type="text/css" rel="stylesheet" href="~/Content/Calendar.css" />
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script>
+        /*$('#sandbox-container div').datepicker({
+            todayBtn: "linked",
+            language: "sv",
+            todayHighlight: true
+        });*/
+    </script>
+</head>
+
+
+<h2>Index</h2>
+<h3></h3>
+<div id="sandbox-container">
+    <div>
+    </div>
+</div>
+
+<input type="datetime" id="dateTimeField" />
+
+<script>
+    $(document).ready(function () {
+        $('#dateTimeField').on('keyup', dateFilter);
+
+    });
+    //window.addEventListener('load', () => {   });
+    function dateFilter(event) {
+        //let input, filter;
+        //input = document.getElementById("dateTimer");
+        //filter = input.value.toUpperCase();
+        let text = event.target.value;
+        console.log('Date time is: ' + text);
+
+        let myArray = [];
+        let newArray = [];
+        let innerArray = [];
+       
+        let ii = 0;
+
+        @foreach (var d in Model)
+        {
+        
+         @:myArray.push("@d");
+         
+         @:newArray[ii] = { Id : "@d.Id", ClockedIn : "@d.ClockedIn", Employee : { Id : "@d.Employee.Id", FirstName : "@d.Employee.FirstName", LastName : "@d.Employee.LastName", IsOnline : "@d.Employee.IsOnline" }, EndTime : "@d.EndTime", StartTime : "@d.StartTime", Salary : "@d.Salary" };
+         @:ii++;
+
+        }
+
+
+        let FilterdDates = myArray.filter(obj => obj.Employee === null);
+        console.log(myArray);
+        console.log(newArray[0].StartTime);
+        document.getElementById("demo").innerHTML = myArray[0].StartTime;
+
+
+
+    }
+</script>
+
+<p id="demo"></p>
+
+<h4>Available</h4>
+<ul id="myUL">
+    @foreach (var x in ViewBag.CalendarDataList)
+    {
+        if (x.Employee == null)
+        {
+            <li>
+                @x.Id;
+                @x.StartTime;
+                @x.EndTime;
+            </li>
+        }
+
+    }
+</ul>
+<h4>Booked</h4>
+<ul>
+    @foreach (var x in ViewBag.CalendarDataList)
+    {
+        if (x.Employee != null)
+        {
+
+            <li>
+                @x.Employee.FirstName;
+                @x.Id;
+                @x.StartTime;
+                @x.EndTime;
+            </li>
+
+        }
+    }
+</ul>
+
 

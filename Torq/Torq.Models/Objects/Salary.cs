@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
 namespace Torq.Models.Objects
@@ -6,6 +7,8 @@ namespace Torq.Models.Objects
 	[DataContract]
 	public partial class Salary
 	{
+		public Salary() => this.Schedules = new HashSet<Schedule>();
+
 		[Key]
 		[DataMember]
 		public int Id { get; set; }
@@ -13,7 +16,7 @@ namespace Torq.Models.Objects
 		public string SalaryType { get; set; }
 		[DataMember]
 		public int Amount { get; set; }
-		[DataMember]
-		public virtual Employee Employee { get; set; }
+		[IgnoreDataMember]
+		public ICollection<Schedule> Schedules { get; set; }
 	}
 }

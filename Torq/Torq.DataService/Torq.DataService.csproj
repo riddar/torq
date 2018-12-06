@@ -56,10 +56,10 @@
     <Compile Include="Interfaces\IEmployeeService.cs" />
     <Compile Include="Interfaces\IRoleService.cs" />
     <Compile Include="Interfaces\ISalaryService.cs" />
-    <Compile Include="Interfaces\ISchemaService.cs" />
+    <Compile Include="Interfaces\IScheduleService.cs" />
     <Compile Include="RoleService.cs" />
     <Compile Include="SalaryService.cs" />
-    <Compile Include="SchemaService.cs" />
+    <Compile Include="ScheduleService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

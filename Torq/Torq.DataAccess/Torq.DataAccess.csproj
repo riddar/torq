@@ -49,9 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\TorqDBContext.cs" />
-    <Compile Include="Migrations\201811231147547_Init.cs" />
-    <Compile Include="Migrations\201811231147547_Init.Designer.cs">
-      <DependentUpon>201811231147547_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201811271618565_Init.cs" />
+    <Compile Include="Migrations\201811271618565_Init.Designer.cs">
+      <DependentUpon>201811271618565_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811290827105_Init1.cs" />
+    <Compile Include="Migrations\201811290827105_Init1.Designer.cs">
+      <DependentUpon>201811290827105_Init1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,8 +73,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811231147547_Init.resx">
-      <DependentUpon>201811231147547_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811271618565_Init.resx">
+      <DependentUpon>201811271618565_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290827105_Init1.resx">
+      <DependentUpon>201811290827105_Init1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

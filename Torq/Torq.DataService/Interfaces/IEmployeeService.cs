@@ -8,9 +8,11 @@ namespace Torq.DataService
 	public interface IEmployeeService
 	{
 		[OperationContract]
-		List<Employee> GetEmployees();
+		IEnumerable<Employee> GetEmployees();
 		[OperationContract]
 		Employee GetEmployeeById(int id);
+		[OperationContract]
+		Employee GetEmployeeByUserName(string userName);
 		[OperationContract]
 		Employee UpdateEmployee(Employee employee);
 		[OperationContract]
