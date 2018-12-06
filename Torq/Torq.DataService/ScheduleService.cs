@@ -45,7 +45,7 @@ namespace Torq.DataService
 			var result = context.Schedules.Include(s => s.Employee).FirstOrDefault(s => s.Id == schedule.Id);
 
 			if (schedule.Employee != null)
-				schedule.Employee = context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == schedule.Employee_Id);
+				schedule.Employee = context.Employees.Include(e => e.Role).FirstOrDefault(e => e.Id == schedule.Employee.Id);
 
 
 			if (result == null)

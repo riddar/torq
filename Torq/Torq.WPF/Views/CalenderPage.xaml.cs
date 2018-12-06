@@ -13,12 +13,10 @@ namespace Torq.WPF.Views
 		Employee Employee { get; set; }
 
 		private DateTime _SelectedDate;
-
 		public DateTime SelectedDate {
 			get { return _SelectedDate; }
 			set { _SelectedDate = value; }
 		}
-
 
 		public CalenderPage(Employee employee)
 		{
@@ -34,6 +32,7 @@ namespace Torq.WPF.Views
 		{
 			if (date == null)
 				return;
+
 			using (ScheduleServiceClient scheduleService = new ScheduleServiceClient())
 			{
 				var schedules = scheduleService.GetSchedulesByMonth(date);

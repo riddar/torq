@@ -19,8 +19,6 @@ namespace Torq.Models.Objects
 		[DataMember]
 		public DateTime EndTime { get; set; }
 		[DataMember]
-		public int Employee_Id { get; set; }
-		[DataMember]
 		public virtual Employee Employee { get; set; }
 		[DataMember]
 		public virtual Salary Salary { get; set; }
