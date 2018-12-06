@@ -6,6 +6,7 @@ using Torq.Models.Objects;
 using Torq.MVC.EmployeesService;
 using Torq.MVC.SchedulesService;
 using Torq.MVC.SalariesService;
+using Torq.MVC.RolesService;
 
 namespace Torq.MVC.Controllers
 {
@@ -17,8 +18,9 @@ namespace Torq.MVC.Controllers
         public ActionResult Index()
         {
             Employee employee = null;
-
-            using (var scheduleService = new ScheduleServiceClient())
+           
+          
+            using (ScheduleServiceClient scheduleService = new ScheduleServiceClient())
             {
                 var schedules = scheduleService.GetSchedules()/*.Where(s => s.Employee == employee)*/;
             }
