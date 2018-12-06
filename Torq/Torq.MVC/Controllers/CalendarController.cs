@@ -7,6 +7,7 @@ using Torq.MVC.EmployeesService;
 using Torq.MVC.SchedulesService;
 using Torq.MVC.SalariesService;
 using Torq.MVC.RolesService;
+using Torq.MethodLiberary;
 
 namespace Torq.MVC.Controllers
 {
@@ -17,10 +18,11 @@ namespace Torq.MVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            Employee employee = null;
-           
-          
-            using (ScheduleServiceClient scheduleService = new ScheduleServiceClient())
+			DateHandler dateHandler = new DateHandler();
+
+			ViewBag.DayOfWeek = dateHandler.GetDayOfWeek(1);
+
+			using (ScheduleServiceClient scheduleService = new ScheduleServiceClient())
             {
                 var schedules = scheduleService.GetSchedules()/*.Where(s => s.Employee == employee)*/;
             }
@@ -149,34 +151,7 @@ namespace Torq.MVC.Controllers
             }
 
         }
+	}
 
 
-    }
-
-
-}
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Torq.MethodLiberary;
-
-namespace Torq.MVC.Controllers
-{
-    public  class CalendarController : Controller
-    {
-        DateHandler dateHandler = new DateHandler();
-
-        // GET: Calendar
-        public ActionResult Index()
-        {
-            ViewBag.DayOfWeek = dateHandler.GetDayOfWeek(1);
-            return View();
-        }
-
-        
-
-        
-    }
 }
