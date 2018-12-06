@@ -38,7 +38,6 @@ namespace Torq.WPF.Views
 				var schedules = scheduleService.GetSchedulesByMonth(date);
 				int days = DateTime.DaysInMonth(date.Year, date.Month);
 				int weeks = GetWeekNumberOfMonth(date);
-
 				var table = new DataTable();
 				table.Columns.Add("Monday");
 				table.Columns.Add("Tuesday");

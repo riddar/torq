@@ -13,7 +13,7 @@ namespace Torq.DataAccess.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201812041219596_Init"; }
+            get { return "201812062247596_Init"; }
         }
         
         string IMigrationMetadata.Source
