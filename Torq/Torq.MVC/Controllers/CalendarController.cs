@@ -13,13 +13,14 @@ namespace Torq.MVC.Controllers
     {
 
         // GET: Calendar
+        [HttpGet]
         public ActionResult Index()
         {
             Employee employee = null;
 
             using (var scheduleService = new ScheduleServiceClient())
             {
-                var schedules = scheduleService.GetSchedules().Where(s => s.Employee == employee);
+                var schedules = scheduleService.GetSchedules()/*.Where(s => s.Employee == employee)*/;
             }
 
 
