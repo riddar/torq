@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torq.MVC", "Torq.MVC\Torq.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torq.MVC.Tests", "Torq.MVC.Tests\Torq.MVC.Tests.csproj", "{4AAEFC53-E5D7-4C52-85CD-8720459EB0CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torq.MethodLiberary", "Torq.MethodLiberary\Torq.MethodLiberary.csproj", "{77D6BF07-D4AB-4350-9862-FB9D27090424}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
