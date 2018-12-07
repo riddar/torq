@@ -103,7 +103,7 @@
             x.setAttribute("href", "editschedule/" + FilterdDates[ii].Id);
             x.appendChild(t);
 
-            if (FilterdDates[ii].Employee === null) {
+            if (FilterdDates[ii].EmployeeId === null) {
                 let li = document.createElement('li');
                 Aul.appendChild(li);
                 li.innerHTML += FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
