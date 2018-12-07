@@ -26,7 +26,7 @@ namespace Torq.MVC.Controllers
 					
 			}
 
-			return View();
+			return RedirectToAction("Index", "Home", employee);
 		}
     }
 }
