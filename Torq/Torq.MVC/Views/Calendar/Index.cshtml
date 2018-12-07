@@ -29,7 +29,7 @@
 <script>
     $(document).ready(function () {
         $('#dateTimeField').on('keyup', dateFilter);
-       
+
     });
     //window.addEventListener('load', () => {   });
     function dateFilter(event) {
@@ -47,7 +47,7 @@
         let ii = 0;
         let jj = 0;
 
-        
+
 
         $("ul").empty();
         /*
@@ -57,44 +57,46 @@
             let selectElement = document.createElement("Select");
             document.getElementById('EmployeeSelector').appendChild(selectElement);
             selectElement.innerHTML = EmployeeArray[ii];
-           
+
 
         }
         console.log(ViewBag.Employees);
         */
+
         @foreach (var d in Model)
         {
+            @:console.log("Employee :" + "@d.Employee");
 
          @:myArray.push("@d");
          if (d.Employee != null)
          {
-         @:innerArray[ii] = { Id: "@d.Employee.Id", FirstName: "@d.Employee.FirstName", LastName: "@d.Employee.LastName", IsOnline: "@d.Employee.IsOnline" };
-       
-            }
-            else
-            {
-            @:innerArray[ii] = null;
-            }
+             @:innerArray[ii] = { Id: "@d.Employee.Id", FirstName: "@d.Employee.FirstName", LastName: "@d.Employee.LastName", IsOnline: "@d.Employee.IsOnline" };
+         }
+         else
+         {
+             @:innerArray[ii] = null;
+         }
+
          @:newArray[ii] = { Id: "@d.Id", ClockedIn: "@d.ClockedIn", Employee: innerArray[ii], EndTime: "@d.EndTime", StartTime: "@d.StartTime", Salary: "@d.Salary" };
          @:ii++;
 
         }
-      
+
         console.log(myArray);
-     
+
 
         let FilterdDates = newArray.filter(obj => String(obj.StartTime).includes(dateTimeField.value));
         let split = String(newArray[0].StartTime).split(" ");
         document.getElementById("lemo").innerHTML = split[0];
-        
 
-       
+
+
         var Aul = document.createElement('ul');
         var Bul = document.createElement('ul');
         document.getElementById('AvailableDiv').appendChild(Aul);
         document.getElementById('BookedDiv').appendChild(Bul);
-  
-        
+
+
         for (ii = 0; ii < FilterdDates.length; ii++)
         {
 
@@ -103,7 +105,7 @@
             x.setAttribute("href", "editschedule/" + FilterdDates[ii].Id);
             x.appendChild(t);
 
-            if (FilterdDates[ii].EmployeeId === null) {
+            if (FilterdDates[ii].Employee === null) {
                 let li = document.createElement('li');
                 Aul.appendChild(li);
                 li.innerHTML += FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
@@ -114,6 +116,7 @@
                 li = document.createElement('li');
                 Bul.appendChild(li);
                 li.innerHTML += FilterdDates[ii].Employee.FirstName + " " + FilterdDates[ii].Employee.LastName + ": " + FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
+                li.appendChild(x);
             }
         }
         console.log(FilterdDates.length);
@@ -139,24 +142,24 @@
             }
 
         }-->
-    </ul>
-    <h4>Booked</h4>
+</ul>
+<h4>Booked</h4>
 <div id="BookedDiv"></div>
-    <ul>
-        <!--   @foreach (var x in ViewBag.CalendarDataList)
+<ul>
+    <!--   @foreach (var x in ViewBag.CalendarDataList)
+    {
+        if (x.Employee != null)
         {
-            if (x.Employee != null)
-            {
 
-                <li>
-                    @x.Employee.FirstName;
-                    @x.Id;
-                    @x.StartTime;
-                    @x.EndTime;
-                </li>
+            <li>
+                @x.Employee.FirstName;
+                @x.Id;
+                @x.StartTime;
+                @x.EndTime;
+            </li>
 
-            }
-        }-->
-    </ul>
+        }
+    }-->
+</ul>
 
 
