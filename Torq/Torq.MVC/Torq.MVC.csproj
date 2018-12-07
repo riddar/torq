@@ -318,16 +318,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\EmployeesService\" />
-    <WCFMetadataStorage Include="Connected Services\RolesService\" />
-    <WCFMetadataStorage Include="Connected Services\SalariesService\" />
-    <WCFMetadataStorage Include="Connected Services\SchedulesService\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Torq.MethodLiberary\Torq.MethodLiberary.csproj">
       <Project>{77d6bf07-d4ab-4350-9862-fb9d27090424}</Project>
       <Name>Torq.MethodLiberary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\EmployeesService\" />
+    <WCFMetadataStorage Include="Connected Services\RolesService\" />
+    <WCFMetadataStorage Include="Connected Services\SalariesService\" />
+    <WCFMetadataStorage Include="Connected Services\SchedulesService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -57,6 +57,14 @@ namespace Torq.MVC.Controllers
                 employees = eb.GetEmployees();
             }
 
+            foreach (var x in schedulesArray)
+            {
+                if (x.EmployeeId != null)
+                {
+                    x.Employee = employees.Where(z => z.Id == x.EmployeeId).FirstOrDefault();
+                }
+            }
+
 
             var sortArray = schedulesArray.OrderBy(m => m.StartTime).ToArray();
             ViewBag.CalendarDataArray = MockArray;
@@ -111,14 +119,14 @@ namespace Torq.MVC.Controllers
 
             using (ScheduleServiceClient db = new ScheduleServiceClient())
             {
-                using (EmployeeServiceClient edb = new EmployeeServiceClient())
-                {
-                    Employee x = edb.GetEmployeeById(schedule.Employee.Id);
-                    schedule.Employee = x;
-                    //TODO: updaterar ej employee, behöver fkey endast vara EmployeeId?
+             //   using (EmployeeServiceClient edb = new EmployeeServiceClient())
+               // {
+                  //  Employee x = edb.GetEmployeeById(schedule.Employee.Id);
+                    schedule.EmployeeId = schedule.Employee.Id;
+                
                     db.UpdateScheduleAsync(schedule);
 
-                }
+             //   }
             }
             return Redirect("~/calendar/index");
         }
