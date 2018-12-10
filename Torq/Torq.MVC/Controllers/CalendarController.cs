@@ -18,11 +18,11 @@ namespace Torq.MVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-			DateHandler dateHandler = new DateHandler();
+            DateHandler dateHandler = new DateHandler();
 
-			ViewBag.DayOfWeek = dateHandler.GetDayOfWeek(1);
+            ViewBag.DayOfWeek = dateHandler.GetDayOfWeek(1);
 
-			using (ScheduleServiceClient scheduleService = new ScheduleServiceClient())
+            using (ScheduleServiceClient scheduleService = new ScheduleServiceClient())
             {
                 var schedules = scheduleService.GetSchedules()/*.Where(s => s.Employee == employee)*/;
             }
@@ -103,10 +103,14 @@ namespace Torq.MVC.Controllers
             {
                 using (EmployeeServiceClient edb = new EmployeeServiceClient())
                 {
-                    var schedule = db.GetScheduleById(id);
-                    var x = edb.GetEmployees();
-                    ViewData["Employees"] = edb.GetEmployees();
-                    return View(schedule);
+                    using (SalaryServiceClient sdb = new SalaryServiceClient())
+                    {
+                        var schedule = db.GetScheduleById(id);
+                        var x = edb.GetEmployees();
+                        ViewData["Salaries"] = sdb.GetSalaries();
+                        ViewData["Employees"] = edb.GetEmployees();
+                        return View(schedule);
+                    }
                 }
             }
 
@@ -114,19 +118,26 @@ namespace Torq.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditSchedule([Bind(Include = "Id,ClockedIn,StartTime,EndTime,Employee")] Schedule schedule)
+        public ActionResult EditSchedule([Bind(Include = "Id,ClockedIn,StartTime,EndTime,Employee,Salary")] Schedule schedule)
         {
 
             using (ScheduleServiceClient db = new ScheduleServiceClient())
             {
-             //   using (EmployeeServiceClient edb = new EmployeeServiceClient())
-               // {
-                  //  Employee x = edb.GetEmployeeById(schedule.Employee.Id);
+                //   using (EmployeeServiceClient edb = new EmployeeServiceClient())
+                // {
+                //  Employee x = edb.GetEmployeeById(schedule.Employee.Id);
+                if (schedule.Employee.Id != 0)
+                {
                     schedule.EmployeeId = schedule.Employee.Id;
-                
-                    db.UpdateScheduleAsync(schedule);
+                }
+                if (schedule.Salary.Id != 0)
+                {
+                    schedule.SalaryId = schedule.Salary.Id;
+                }
 
-             //   }
+                db.UpdateScheduleAsync(schedule);
+
+                //   }
             }
             return Redirect("~/calendar/index");
         }
@@ -174,7 +185,7 @@ namespace Torq.MVC.Controllers
             {
                 if (Id.HasValue)
                 {
-                    
+
                     var newId = Id.Value;
                     ViewBag.newId = newId;
                     var x = db.GetScheduleById(newId);
@@ -183,7 +194,6 @@ namespace Torq.MVC.Controllers
                 return Redirect("~/calendar/index");
             }
         }
-        //TODO: not reaching 
         [HttpPost] //, ActionName("Delete")
         public ActionResult DeleteSchedule(int Id)
         {
@@ -195,7 +205,7 @@ namespace Torq.MVC.Controllers
                 var x = db.GetScheduleById(Id);
                 db.RemoveSchedule(x);
             }
-                return Redirect("~/calendar/index");
+            return Redirect("~/calendar/index");
         }
 
     }
