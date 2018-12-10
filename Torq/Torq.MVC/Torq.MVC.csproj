@@ -294,6 +294,7 @@
     <Content Include="Views\Calendar\EditSchedule.cshtml" />
     <Content Include="Views\Calendar\CreateSalary.cshtml" />
     <Content Include="Views\Calendar\Index2.cshtml" />
+    <Content Include="Views\Calendar\DeleteSchedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

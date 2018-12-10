@@ -149,7 +149,7 @@ namespace Torq.MVC.Controllers
             }
         }
 
-
+        [HttpGet]
         public ActionResult CreateSalary()
         {
             return View();
@@ -166,7 +166,39 @@ namespace Torq.MVC.Controllers
             }
 
         }
-	}
+
+        [HttpGet]
+        public ActionResult DeleteSchedule(int? Id)
+        {
+            using (ScheduleServiceClient db = new ScheduleServiceClient())
+            {
+                if (Id.HasValue)
+                {
+                    
+                    var newId = Id.Value;
+                    ViewBag.newId = newId;
+                    var x = db.GetScheduleById(newId);
+                    return View(x);
+                }
+                return Redirect("~/calendar/index");
+            }
+        }
+        //TODO: not reaching 
+        [HttpPost] //, ActionName("Delete")
+        public ActionResult DeleteSchedule(int Id)
+        {
+
+
+            using (ScheduleServiceClient db = new ScheduleServiceClient())
+            {
+
+                var x = db.GetScheduleById(Id);
+                db.RemoveSchedule(x);
+            }
+                return Redirect("~/calendar/index");
+        }
+
+    }
 
 
 }
