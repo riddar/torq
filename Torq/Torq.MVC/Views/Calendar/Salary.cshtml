@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Torq.Models.Objects.Salary>
+
+@{
+    ViewBag.Title = "Salary";
+}
+
+<h2>Salary</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateSalary")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SalaryType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalaryType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "DeleteSalary", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
