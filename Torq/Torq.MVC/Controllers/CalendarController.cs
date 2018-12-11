@@ -144,7 +144,6 @@ namespace Torq.MVC.Controllers
 
         public ActionResult CreateEmployee()
         {
-
             return View();
         }
 
@@ -179,6 +178,42 @@ namespace Torq.MVC.Controllers
         }
 
         [HttpGet]
+        public ActionResult DeleteSalary(int? Id)
+        {
+            using (SalaryServiceClient db = new SalaryServiceClient())
+            {
+                if (Id.HasValue)
+                {
+                    var x = db.GetSalaryById(Id.Value);
+                    return View(x);
+                }
+            }
+            return Redirect("~/calendar/index");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteSalary(int id)
+        {
+            using (SalaryServiceClient db = new SalaryServiceClient())
+            {
+                //TODO:har problem att radera salary som har en schedules. Som det här?
+                using (ScheduleServiceClient sdb = new ScheduleServiceClient())
+                {
+                    var Schedules = sdb.GetSchedules().Where(m => m.SalaryId == id);
+                    foreach (var z in Schedules)
+                    {
+                        z.SalaryId = null;
+                        sdb.UpdateSchedule(z);
+                    }
+                }
+                //
+                db.RemoveSalary(db.GetSalaryById(id));
+                return Redirect("~/calendar/index");
+            }
+        }
+
+
+        [HttpGet]
         public ActionResult DeleteSchedule(int? Id)
         {
             using (ScheduleServiceClient db = new ScheduleServiceClient())
@@ -207,6 +242,8 @@ namespace Torq.MVC.Controllers
             }
             return Redirect("~/calendar/index");
         }
+
+
 
     }
 
