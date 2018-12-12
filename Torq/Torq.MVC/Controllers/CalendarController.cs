@@ -54,7 +54,7 @@ namespace Torq.MVC.Controllers
             }
             using (EmployeeServiceClient eb = new EmployeeServiceClient())
             {
-                employees = eb.GetEmployees();
+                employees = eb.GetEmployees();               
             }
 
             foreach (var x in schedulesArray)
@@ -70,6 +70,7 @@ namespace Torq.MVC.Controllers
             ViewBag.CalendarDataArray = MockArray;
             ViewBag.CalendarDataList = MockList;
             ViewBag.Employees = employees;
+            ViewData["Employees"] = employees;
             //@model Torq.Models.Objects.Schema[]
             //@model List<Torq.Models.Objects.Schema>
             return View(sortArray);
