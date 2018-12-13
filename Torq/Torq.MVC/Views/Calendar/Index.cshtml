@@ -48,22 +48,87 @@
         var optionSelected = $("option:selected", this);
         console.log(optionSelected[0].innerHTML);
         console.log(event);
-        let text = event.target.value.innerHTML;
+        let sOption = optionSelected[0].innerHTML;
         console.log("denna");
-        console.log(text + " text");       
-    }
+        console.log(sOption + " text");
+
+        localStorage.setItem('ChoosenEmployee', sOption);
+        console.log("log 2: " + localStorage.getItem('ChoosenEmployee'));
+
+        // Håller på
+        let newArray = [];
+        let innerArray = [];
+        let EmployeeArray = [];
+
+        let ii = 0;
+
+        $("ul").empty();
+
+        @foreach (var d in Model)
+        { 
+
+        if (d.Employee != null)
+        {
+             @:innerArray[ii] = { Id: "@d.Employee.Id", FirstName: "@d.Employee.FirstName", LastName: "@d.Employee.LastName", IsOnline: "@d.Employee.IsOnline" };                         
+            @:newArray[ii] = { Id: "@d.Id", ClockedIn: "@d.ClockedIn", Employee: innerArray[ii], EndTime: "@d.EndTime", StartTime: "@d.StartTime", Salary: "@d.Salary" };
+            @:ii++;
+
+         }
+      
+
+
+        }
+
+       
+        console.log(sOption + "soption");
+        console.log('newArray', newArray);
+        console.log("sträng" + newArray[0].Employee.FirstName);
+        let FilterdDates = newArray.filter(obj => String(obj.Employee.FirstName).includes(sOption));
+     //   let split = String(newArray[0].StartTime).split(" ");
+       // document.getElementById("lemo").innerHTML = split[0];
+
+        var Aul = document.createElement('ul');
+        var Bul = document.createElement('ul');
+        document.getElementById('AvailableDiv').appendChild(Aul);
+        document.getElementById('BookedDiv').appendChild(Bul);
+
+        console.log("här");
+        for (ii = 0; ii < FilterdDates.length; ii++)
+        {
+
+            let x = document.createElement("A");
+            let t = document.createTextNode("Edit");
+            x.setAttribute("href", "editschedule/" + FilterdDates[ii].Id);
+            x.appendChild(t);
+
+            if (FilterdDates[ii].Employee === null) {
+                let li = document.createElement('li');
+                Aul.appendChild(li);
+                li.innerHTML += FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
+                li.appendChild(x);
+            }
+
+            else {
+                li = document.createElement('li');
+                Bul.appendChild(li);
+                li.innerHTML += FilterdDates[ii].Employee.FirstName + " " + FilterdDates[ii].Employee.LastName + ": " + FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
+                li.appendChild(x);
+            }
+        }
+        //
+
+
+        }
 
     function dateFilter(event) {
         let text = event.target.value;
         console.log('Date time is: ' + text);
-
         let myArray = [];
         let newArray = [];
         let innerArray = [];
         let EmployeeArray = [];
 
         let ii = 0;
-        let jj = 0;
 
         $("ul").empty();
 
@@ -90,9 +155,7 @@
 
         let FilterdDates = newArray.filter(obj => String(obj.StartTime).includes(dateTimeField.value));
         let split = String(newArray[0].StartTime).split(" ");
-        document.getElementById("lemo").innerHTML = split[0];
-
-
+       // document.getElementById("lemo").innerHTML = split[0];
 
         var Aul = document.createElement('ul');
         var Bul = document.createElement('ul');

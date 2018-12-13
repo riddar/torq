@@ -71,6 +71,7 @@ namespace Torq.MVC.Controllers
             ViewBag.CalendarDataList = MockList;
             ViewBag.Employees = employees;
             ViewData["Employees"] = employees;
+            ViewData["SortedDates"] = sortArray;
             //@model Torq.Models.Objects.Schema[]
             //@model List<Torq.Models.Objects.Schema>
             return View(sortArray);
