@@ -18,11 +18,11 @@ namespace Torq.MVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-			DateHandler dateHandler = new DateHandler();
+            DateHandler dateHandler = new DateHandler();
 
-			ViewBag.DayOfWeek = dateHandler.GetDayOfWeek(1);
+            ViewBag.DayOfWeek = dateHandler.GetDayOfWeek(1);
 
-			using (ScheduleServiceClient scheduleService = new ScheduleServiceClient())
+            using (ScheduleServiceClient scheduleService = new ScheduleServiceClient())
             {
                 var schedules = scheduleService.GetSchedules()/*.Where(s => s.Employee == employee)*/;
             }
@@ -54,7 +54,7 @@ namespace Torq.MVC.Controllers
             }
             using (EmployeeServiceClient eb = new EmployeeServiceClient())
             {
-                employees = eb.GetEmployees();
+                employees = eb.GetEmployees();               
             }
 
             foreach (var x in schedulesArray)
@@ -70,6 +70,8 @@ namespace Torq.MVC.Controllers
             ViewBag.CalendarDataArray = MockArray;
             ViewBag.CalendarDataList = MockList;
             ViewBag.Employees = employees;
+            ViewData["Employees"] = employees;
+            ViewData["SortedDates"] = sortArray;
             //@model Torq.Models.Objects.Schema[]
             //@model List<Torq.Models.Objects.Schema>
             return View(sortArray);
@@ -103,10 +105,14 @@ namespace Torq.MVC.Controllers
             {
                 using (EmployeeServiceClient edb = new EmployeeServiceClient())
                 {
-                    var schedule = db.GetScheduleById(id);
-                    var x = edb.GetEmployees();
-                    ViewData["Employees"] = edb.GetEmployees();
-                    return View(schedule);
+                    using (SalaryServiceClient sdb = new SalaryServiceClient())
+                    {
+                        var schedule = db.GetScheduleById(id);
+                        var x = edb.GetEmployees();
+                        ViewData["Salaries"] = sdb.GetSalaries();
+                        ViewData["Employees"] = edb.GetEmployees();
+                        return View(schedule);
+                    }
                 }
             }
 
@@ -114,26 +120,32 @@ namespace Torq.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditSchedule([Bind(Include = "Id,ClockedIn,StartTime,EndTime,Employee")] Schedule schedule)
+        public ActionResult EditSchedule([Bind(Include = "Id,ClockedIn,StartTime,EndTime,Employee,Salary")] Schedule schedule)
         {
 
             using (ScheduleServiceClient db = new ScheduleServiceClient())
             {
-             //   using (EmployeeServiceClient edb = new EmployeeServiceClient())
-               // {
-                  //  Employee x = edb.GetEmployeeById(schedule.Employee.Id);
+                //   using (EmployeeServiceClient edb = new EmployeeServiceClient())
+                // {
+                //  Employee x = edb.GetEmployeeById(schedule.Employee.Id);
+                if (schedule.Employee.Id != 0)
+                {
                     schedule.EmployeeId = schedule.Employee.Id;
-                
-                    db.UpdateScheduleAsync(schedule);
+                }
+                if (schedule.Salary.Id != 0)
+                {
+                    schedule.SalaryId = schedule.Salary.Id;
+                }
 
-             //   }
+                db.UpdateScheduleAsync(schedule);
+
+                //   }
             }
             return Redirect("~/calendar/index");
         }
 
         public ActionResult CreateEmployee()
         {
-
             return View();
         }
 
@@ -150,6 +162,18 @@ namespace Torq.MVC.Controllers
         }
 
 
+        //Salary
+
+        [HttpGet]
+        public ActionResult Salary()
+        {
+            using (SalaryServiceClient db = new SalaryServiceClient())
+            {
+                return View(db.GetSalaries());
+            }
+        }
+
+        [HttpGet]
         public ActionResult CreateSalary()
         {
             return View();
@@ -164,9 +188,73 @@ namespace Torq.MVC.Controllers
                 ss.CreateSalary(salary);
                 return Redirect("~/calendar/index");
             }
-
         }
-	}
+
+        [HttpGet]
+        public ActionResult DeleteSalary(int? Id)
+        {
+            using (SalaryServiceClient db = new SalaryServiceClient())
+            {
+                if (Id.HasValue)
+                {
+                    var x = db.GetSalaryById(Id.Value);
+                    return View(x);
+                }
+            }
+            return Redirect("~/calendar/index");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteSalary(int id)
+        {
+            using (SalaryServiceClient db = new SalaryServiceClient())
+            {
+                //TODO:har problem att radera salary som har en schedules. Som det här?
+                using (ScheduleServiceClient sdb = new ScheduleServiceClient())
+                {
+                    var Schedules = sdb.GetSchedules().Where(m => m.SalaryId == id);
+                    foreach (var z in Schedules)
+                    {
+                        z.SalaryId = null;
+                        sdb.UpdateSchedule(z);
+                    }
+                }
+                //
+                db.RemoveSalary(db.GetSalaryById(id));
+                return Redirect("~/calendar/index");
+            }
+        }
+
+
+        [HttpGet]
+        public ActionResult DeleteSchedule(int? Id)
+        {
+            using (ScheduleServiceClient db = new ScheduleServiceClient())
+            {
+                if (Id.HasValue)
+                {
+
+                    var newId = Id.Value;
+                    ViewBag.newId = newId;
+                    var x = db.GetScheduleById(newId);
+                    return View(x);
+                }
+                return Redirect("~/calendar/index");
+            }
+        }
+
+        [HttpPost] //, ActionName("Delete")
+        public ActionResult DeleteSchedule(int Id)
+        {
+            using (ScheduleServiceClient db = new ScheduleServiceClient())
+            {
+
+                var x = db.GetScheduleById(Id);
+                db.RemoveSchedule(x);
+            }
+            return Redirect("~/calendar/index");
+        }
+    }
 
 
 }

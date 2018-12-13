@@ -4,7 +4,23 @@
 @{
     ViewBag.Title = "EditSchedule";
 }
+<head><script src="~/Scripts/jquery-3.3.1.js"></script></head>
+<script>
+    $(document).ready(function () {
+        console.log("ready!");
+        var $ddSalary = $("#SalaryDD");
+        var x = JSON.parse('@Html.Raw(Json.Encode(ViewData["Salaries"]))');
+        console.log(@Model.SalaryId);
+        console.log(x.indexOf(@Model.SalaryId));
+        console.log(x.map(m=>m.Id).indexOf(@Model.SalaryId));
+        $ddSalary.prop('selectedIndex', x.map(m => m.Id).indexOf(@Model.SalaryId)+1);
 
+        var $ddEmployee = $("#EmployeeDD"); 
+        var y = JSON.parse('@Html.Raw(Json.Encode(ViewData["Employees"]))');
+        $ddEmployee.prop('selectedIndex', y.map(m => m.Id).indexOf(@Model.EmployeeId)+1);
+
+    });
+</script>
 <h2>EditSchedule</h2>
 
 @using (Html.BeginForm())
@@ -47,8 +63,17 @@
         @Html.LabelFor(model => model.Employee, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.Employee.Id,
-             new SelectList((ViewData["Employees"] as IList<Torq.Models.Objects.Employee>),"Id","FirstName"), "Choose")
+             new SelectList((ViewData["Employees"] as IList<Torq.Models.Objects.Employee>),"Id","FirstName"), "Choose Employee", new { @id = "EmployeeDD", @class = "DropDowns" } )
             @Html.ValidationMessageFor(model => model.Employee.Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Salary, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Salary.Id,
+             new SelectList((ViewData["Salaries"] as IList<Torq.Models.Objects.Salary>),"Id","SalaryType"), "Choose Salary", new { @id = "SalaryDD", @class = "DropDowns" })
+            @Html.ValidationMessageFor(model => model.Salary.Id, "", new { @class = "text-danger" })
         </div>
     </div>
 

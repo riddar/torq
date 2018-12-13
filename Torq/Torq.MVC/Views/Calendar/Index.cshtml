@@ -25,43 +25,112 @@
 </div>
 
 <input type="datetime" id="dateTimeField" />
+<select id="EmployeeSelector"><option>choose</option></select>
 
 <script>
     $(document).ready(function () {
         $('#dateTimeField').on('keyup', dateFilter);
+        $('#EmployeeSelector').on('change', employeeFilter);
+       // $('#EmployeeSelector').change(function () { console.log(this) });
+
+        var y = JSON.parse('@Html.Raw(Json.Encode(ViewData["Employees"]))');
+        var options = y;
+        console.log(options);
+        $('#EmployeeSelector');
+        $.each(options, function (i, p) {
+            $('#EmployeeSelector').append($('<option></option>').val(p).html(p.FirstName));
+        });
 
     });
-    //window.addEventListener('load', () => {   });
+
+    function employeeFilter(event)
+    {
+        var optionSelected = $("option:selected", this);
+        console.log(optionSelected[0].innerHTML);
+        console.log(event);
+        let sOption = optionSelected[0].innerHTML;
+        console.log("denna");
+        console.log(sOption + " text");
+
+        localStorage.setItem('ChoosenEmployee', sOption);
+        console.log("log 2: " + localStorage.getItem('ChoosenEmployee'));
+
+        // Håller på
+        let newArray = [];
+        let innerArray = [];
+        let EmployeeArray = [];
+
+        let ii = 0;
+
+        $("ul").empty();
+
+        @foreach (var d in Model)
+        { 
+
+        if (d.Employee != null)
+        {
+             @:innerArray[ii] = { Id: "@d.Employee.Id", FirstName: "@d.Employee.FirstName", LastName: "@d.Employee.LastName", IsOnline: "@d.Employee.IsOnline" };                         
+            @:newArray[ii] = { Id: "@d.Id", ClockedIn: "@d.ClockedIn", Employee: innerArray[ii], EndTime: "@d.EndTime", StartTime: "@d.StartTime", Salary: "@d.Salary" };
+            @:ii++;
+
+         }
+      
+
+
+        }
+
+       
+        console.log(sOption + "soption");
+        console.log('newArray', newArray);
+        console.log("sträng" + newArray[0].Employee.FirstName);
+        let FilterdDates = newArray.filter(obj => String(obj.Employee.FirstName).includes(sOption));
+     //   let split = String(newArray[0].StartTime).split(" ");
+       // document.getElementById("lemo").innerHTML = split[0];
+
+        var Aul = document.createElement('ul');
+        var Bul = document.createElement('ul');
+        document.getElementById('AvailableDiv').appendChild(Aul);
+        document.getElementById('BookedDiv').appendChild(Bul);
+
+        console.log("här");
+        for (ii = 0; ii < FilterdDates.length; ii++)
+        {
+
+            let x = document.createElement("A");
+            let t = document.createTextNode("Edit");
+            x.setAttribute("href", "editschedule/" + FilterdDates[ii].Id);
+            x.appendChild(t);
+
+            if (FilterdDates[ii].Employee === null) {
+                let li = document.createElement('li');
+                Aul.appendChild(li);
+                li.innerHTML += FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
+                li.appendChild(x);
+            }
+
+            else {
+                li = document.createElement('li');
+                Bul.appendChild(li);
+                li.innerHTML += FilterdDates[ii].Employee.FirstName + " " + FilterdDates[ii].Employee.LastName + ": " + FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
+                li.appendChild(x);
+            }
+        }
+        //
+
+
+        }
+
     function dateFilter(event) {
-        //let input, filter;
-        //input = document.getElementById("dateTimer");
-        //filter = input.value.toUpperCase();
         let text = event.target.value;
         console.log('Date time is: ' + text);
-
         let myArray = [];
         let newArray = [];
         let innerArray = [];
         let EmployeeArray = [];
 
         let ii = 0;
-        let jj = 0;
-
-
 
         $("ul").empty();
-        /*
-        for (jj; jj < ViewBag.Employees; jj++) {
-            EmployeeArray[jj] = {Id: e.Id, FirstName: e.FirstName, LastName: e.LastName, IsOnline: e.IsOnline};
-            jj++;
-            let selectElement = document.createElement("Select");
-            document.getElementById('EmployeeSelector').appendChild(selectElement);
-            selectElement.innerHTML = EmployeeArray[ii];
-
-
-        }
-        console.log(ViewBag.Employees);
-        */
 
         @foreach (var d in Model)
         {
@@ -84,12 +153,9 @@
 
         console.log(myArray);
 
-
         let FilterdDates = newArray.filter(obj => String(obj.StartTime).includes(dateTimeField.value));
         let split = String(newArray[0].StartTime).split(" ");
-        document.getElementById("lemo").innerHTML = split[0];
-
-
+       // document.getElementById("lemo").innerHTML = split[0];
 
         var Aul = document.createElement('ul');
         var Bul = document.createElement('ul');
@@ -110,8 +176,8 @@
                 Aul.appendChild(li);
                 li.innerHTML += FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
                 li.appendChild(x);
-
             }
+
             else {
                 li = document.createElement('li');
                 Bul.appendChild(li);
@@ -125,7 +191,7 @@
 
 <p id="lemo">exempel tid</p>
 
-<select id="EmployeeSelector"></select>
+
 
 <h4>Available</h4>
 <div id="AvailableDiv"></div>
