@@ -27,7 +27,7 @@ namespace Torq.MVC.Controllers
                 var schedules = scheduleService.GetSchedules()/*.Where(s => s.Employee == employee)*/;
             }
 
-
+            //MockData
             Schedule[] MockArray = new Schedule[] {
                 new Schedule { Id = 1, ClockedIn = false, Employee = null, EndTime = new DateTime(2018, 5, 1, 18, 30, 52), StartTime = new DateTime(2018, 5, 1, 8, 30, 52), Salary = null },
                 new Schedule { Id = 2, ClockedIn = false, Employee = null, EndTime = new DateTime(2018, 5, 2, 18, 30, 52), StartTime = new DateTime(2018, 5, 2, 8, 30, 52), Salary = null },
@@ -72,6 +72,7 @@ namespace Torq.MVC.Controllers
             ViewBag.Employees = employees;
             ViewData["Employees"] = employees;
             ViewData["SortedDates"] = sortArray;
+            ViewBag.Today = DateTime.Now;
             //@model Torq.Models.Objects.Schema[]
             //@model List<Torq.Models.Objects.Schema>
             return View(sortArray);
