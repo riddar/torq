@@ -31,7 +31,7 @@
 
 <script>
     $(document).ready(function () {
-        $('#dateTimeField').on('keyup', dateFilter);
+     //   $('#dateTimeField').on('keyup', dateFilter);
         $('#EmployeeSelector').on('change', employeeFilter);
        // $('#EmployeeSelector').change(function () { console.log(this) });
 
@@ -124,9 +124,13 @@
 
         }
 
-    function dateFilter(event) {
-        let text = event.target.value;
-        console.log('Date time is: ' + text);
+   /* function dateFilter2(MarkedDate)
+    {
+        console.log(MarkedDate);
+    } */
+
+    function dateFilter2(selectedDate) {
+        console.log("Selected Date: " + selectedDate);
         let myArray = [];
         let newArray = [];
         let innerArray = [];
@@ -157,7 +161,7 @@
 
         console.log(myArray);
 
-        let FilterdDates = newArray.filter(obj => String(obj.StartTime).includes(dateTimeField.value));
+        let FilterdDates = newArray.filter(obj => String(obj.StartTime).includes(selectedDate)); //dateTimeField.value
         let split = String(newArray[0].StartTime).split(" ");
        // document.getElementById("lemo").innerHTML = split[0];
 
