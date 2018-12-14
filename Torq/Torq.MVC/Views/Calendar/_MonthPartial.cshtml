@@ -1,14 +1,107 @@
 ﻿@{
     DateTime dt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
 }
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.prev').on('click', prevFunc);
+        $('.next').on('click', forwFunc);
+        let d = new Date("@ViewBag.Today");
+        console.log(d);
+        d.setDate(1);
+        localStorage.setItem('ViewingDate', d);
+        console.log("In the partial!");
+    })
+
+    function calendarLiFunc(event) {
+        console.log(event.target.innerHTML);
+        console.log(localStorage.getItem('ChoosenEmployee'))
+    }
+
+    function forwFunc()
+    {
+        ScrollFunc(1);
+    }
+
+    function prevFunc() {
+        ScrollFunc(-1);
+    }
+
+    function ScrollFunc(plusOrMin)
+    {
+        let x = new Date(localStorage.getItem('ViewingDate'));
+        console.log(x);
+        x.setMonth(x.getMonth() + plusOrMin);
+
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+        console.log(x.getFullYear());
+        document.getElementById('MonthDisplayer').innerHTML = monthNames[x.getMonth()];
+        document.getElementById('YearDisplayer').innerHTML = x.getFullYear();
+        localStorage.setItem('ViewingDate', x);
+        console.log(x);
+        let daything = daysInMonth(x.getMonth()+1, x.getFullYear());
+        $(".days").empty();
+        console.log(x.getDay());
+
+        let daysToJump = 0;
+
+        if (x.getDay() == 1) {
+            daysToJump = 0;
+        }
+        else if (x.getDay() == 2) {
+            daysToJump = 1;
+        }
+        else if (x.getDay() == 3) {
+            daysToJump = 2;
+        }
+        else if (x.getDay() == 4) {
+            daysToJump = 3;
+        }
+        else if (x.getDay() == 5) {
+            daysToJump = 4;
+        }
+        else if (x.getDay() == 6) {
+            daysToJump = 5;
+        }
+        else if (x.getDay() == 0) {
+            daysToJump = 6;
+        }
+        var days = document.getElementById('days');
+
+        for (i = 0; i < daysToJump; i++)
+        {
+          
+            var Li = document.createElement('li');
+            Li.innerHTML = "*";
+            days.appendChild(Li);
+        }
 
 
+        for (i = 1; i <= daything; i++)
+        {
+           
+            var Li = document.createElement('li');
+            Li.innerHTML = i;
+            Li.className = "CalendarLi";
+            days.appendChild(Li);
+        }
+        $('.CalendarLi').on('click', calendarLiFunc);
+
+    }
+    function daysInMonth(month, year) {
+        console.log("månad: " + month + "År: " + year);
+        return new Date(year, month, 0).getDate();
+    }
+
+</script>
 
 <div class="month">
     <ul>
         <li class="prev">&#10094;</li>
         <li class="next">&#10095;</li>
-        <li>@DateTime.Now.ToString("MMMM")<br><span style="font-size:18px">2017</span></li>
+        <li><span id="MonthDisplayer">@ViewBag.Today.ToString("MMMM")</span><br><span id="YearDisplayer" style="font-size:18px">@ViewBag.Today.ToString("yyyy")</span></li>
     </ul>
 </div>
 
@@ -21,8 +114,8 @@
     <li>Saturday</li>
     <li>Sunday</li>
 </ul>
-
-<ul class="days">
+<ul class="days2"></ul>
+<ul class="days" id="days">
     @{
         int daysToJump = 0;
 

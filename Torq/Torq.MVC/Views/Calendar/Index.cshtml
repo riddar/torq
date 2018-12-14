@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Index";
 }
+@Html.Partial("_MonthPartial")
+
 
 <head>
 
@@ -62,24 +64,24 @@
 
         let ii = 0;
 
-        $("ul").empty();
+        $(".UlKlass").empty();
 
         @foreach (var d in Model)
-        { 
+        {
 
         if (d.Employee != null)
         {
-             @:innerArray[ii] = { Id: "@d.Employee.Id", FirstName: "@d.Employee.FirstName", LastName: "@d.Employee.LastName", IsOnline: "@d.Employee.IsOnline" };                         
+             @:innerArray[ii] = { Id: "@d.Employee.Id", FirstName: "@d.Employee.FirstName", LastName: "@d.Employee.LastName", IsOnline: "@d.Employee.IsOnline" };
             @:newArray[ii] = { Id: "@d.Id", ClockedIn: "@d.ClockedIn", Employee: innerArray[ii], EndTime: "@d.EndTime", StartTime: "@d.StartTime", Salary: "@d.Salary" };
             @:ii++;
 
          }
-      
+
 
 
         }
 
-       
+
         console.log(sOption + "soption");
         console.log('newArray', newArray);
         console.log("sträng" + newArray[0].Employee.FirstName);
@@ -89,6 +91,8 @@
 
         var Aul = document.createElement('ul');
         var Bul = document.createElement('ul');
+        Bul.className = "UlKlass";
+        Aul.className = "UlKlass";
         document.getElementById('AvailableDiv').appendChild(Aul);
         document.getElementById('BookedDiv').appendChild(Bul);
 
@@ -130,7 +134,7 @@
 
         let ii = 0;
 
-        $("ul").empty();
+        $(".UlKlass").empty();
 
         @foreach (var d in Model)
         {
@@ -159,6 +163,9 @@
 
         var Aul = document.createElement('ul');
         var Bul = document.createElement('ul');
+        Bul.className = "UlKlass";
+        Aul.className = "UlKlass";
+
         document.getElementById('AvailableDiv').appendChild(Aul);
         document.getElementById('BookedDiv').appendChild(Bul);
 
