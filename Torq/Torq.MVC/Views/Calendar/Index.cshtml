@@ -16,17 +16,33 @@
             todayHighlight: true
         });*/
     </script>
+    <style>
+        <style >
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+    </style>
 </head>
 
-
-<h2>Index</h2>
 <h3></h3>
 <div id="sandbox-container">
     <div>
     </div>
 </div>
 
-<input type="datetime" id="dateTimeField" />
+<!--<input type="datetime" id="dateTimeField" />-->
 <select id="EmployeeSelector"><option>choose</option></select>
 
 <script>
@@ -57,7 +73,6 @@
         localStorage.setItem('ChoosenEmployee', sOption);
         console.log("log 2: " + localStorage.getItem('ChoosenEmployee'));
 
-        // Håller på
         let newArray = [];
         let innerArray = [];
         let EmployeeArray = [];
@@ -65,6 +80,9 @@
         let ii = 0;
 
         $(".UlKlass").empty();
+        $("#ATable").empty();
+        $("#BTable").empty();
+
 
         @foreach (var d in Model)
         {
@@ -86,37 +104,56 @@
         console.log('newArray', newArray);
         console.log("sträng" + newArray[0].Employee.FirstName);
         let FilterdDates = newArray.filter(obj => String(obj.Employee.FirstName).includes(sOption));
-     //   let split = String(newArray[0].StartTime).split(" ");
-       // document.getElementById("lemo").innerHTML = split[0];
-
-        var Aul = document.createElement('ul');
-        var Bul = document.createElement('ul');
-        Bul.className = "UlKlass";
-        Aul.className = "UlKlass";
-        document.getElementById('AvailableDiv').appendChild(Aul);
-        document.getElementById('BookedDiv').appendChild(Bul);
+   
 
         console.log("här");
         for (ii = 0; ii < FilterdDates.length; ii++)
         {
 
-            let x = document.createElement("A");
+            let MyTr = document.createElement("tr");
+
+            let x = document.createElement("a");
             let t = document.createTextNode("Edit");
             x.setAttribute("href", "editschedule/" + FilterdDates[ii].Id);
             x.appendChild(t);
 
             if (FilterdDates[ii].Employee === null) {
                 let li = document.createElement('li');
-                Aul.appendChild(li);
-                li.innerHTML += FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
-                li.appendChild(x);
+
+                let Th1 = document.createElement('th');
+                let Th2 = document.createElement('th');
+                let Th3 = document.createElement('th');
+
+                document.getElementById('ATable').appendChild(MyTr);
+
+                MyTr.appendChild(Th1);
+                MyTr.appendChild(Th2);
+                MyTr.appendChild(Th3);
+
+                Th1.innerHTML = FilterdDates[ii].StartTime;
+                Th2.innerHTML = FilterdDates[ii].EndTime;
+                Th3.appendChild(x);
             }
 
             else {
-                li = document.createElement('li');
-                Bul.appendChild(li);
-                li.innerHTML += FilterdDates[ii].Employee.FirstName + " " + FilterdDates[ii].Employee.LastName + ": " + FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
-                li.appendChild(x);
+                let li = document.createElement('li');
+
+                let Th1 = document.createElement('th');
+                let Th2 = document.createElement('th');
+                let Th3 = document.createElement('th');
+                let Th4 = document.createElement('th');
+
+                document.getElementById('BTable').appendChild(MyTr);
+
+                MyTr.appendChild(Th4);
+                MyTr.appendChild(Th1);
+                MyTr.appendChild(Th2);
+                MyTr.appendChild(Th3);
+
+                Th4.innerHTML = FilterdDates[ii].Employee.FirstName + " " + FilterdDates[ii].Employee.LastName;
+                Th1.innerHTML = FilterdDates[ii].StartTime;
+                Th2.innerHTML = FilterdDates[ii].EndTime;
+                Th3.appendChild(x);
             }
         }
         //
@@ -139,6 +176,8 @@
         let ii = 0;
 
         $(".UlKlass").empty();
+        $("#ATable").empty();
+        $("#BTable").empty();
 
         @foreach (var d in Model)
         {
@@ -162,81 +201,77 @@
         console.log(myArray);
 
         let FilterdDates = newArray.filter(obj => String(obj.StartTime).includes(selectedDate)); //dateTimeField.value
-        let split = String(newArray[0].StartTime).split(" ");
-       // document.getElementById("lemo").innerHTML = split[0];
-
-        var Aul = document.createElement('ul');
-        var Bul = document.createElement('ul');
-        Bul.className = "UlKlass";
-        Aul.className = "UlKlass";
-
-        document.getElementById('AvailableDiv').appendChild(Aul);
-        document.getElementById('BookedDiv').appendChild(Bul);
-
+        let split = String(newArray[0].StartTime).split(" ");      
+        
 
         for (ii = 0; ii < FilterdDates.length; ii++)
         {
 
-            let x = document.createElement("A");
+            let MyTr = document.createElement("tr");
+           
+            let x = document.createElement("a");
             let t = document.createTextNode("Edit");
             x.setAttribute("href", "editschedule/" + FilterdDates[ii].Id);
             x.appendChild(t);
 
             if (FilterdDates[ii].Employee === null) {
                 let li = document.createElement('li');
-                Aul.appendChild(li);
-                li.innerHTML += FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
-                li.appendChild(x);
+
+                let Th1 = document.createElement('th');
+                let Th2 = document.createElement('th');
+                let Th3 = document.createElement('th');
+
+                document.getElementById('ATable').appendChild(MyTr);
+
+                MyTr.appendChild(Th1);
+                MyTr.appendChild(Th2);
+                MyTr.appendChild(Th3);
+
+                Th1.innerHTML = FilterdDates[ii].StartTime;
+                Th2.innerHTML = FilterdDates[ii].EndTime;
+                Th3.appendChild(x);
             }
 
             else {
-                li = document.createElement('li');
-                Bul.appendChild(li);
-                li.innerHTML += FilterdDates[ii].Employee.FirstName + " " + FilterdDates[ii].Employee.LastName + ": " + FilterdDates[ii].StartTime + " -> " + FilterdDates[ii].EndTime + ": ";
-                li.appendChild(x);
+                let li = document.createElement('li');
+
+                let Th1 = document.createElement('th');
+                let Th2 = document.createElement('th');
+                let Th3 = document.createElement('th');
+                let Th4 = document.createElement('th');
+
+                document.getElementById('BTable').appendChild(MyTr);
+
+                MyTr.appendChild(Th4);
+                MyTr.appendChild(Th1);
+                MyTr.appendChild(Th2);
+                MyTr.appendChild(Th3);
+
+                Th4.innerHTML = FilterdDates[ii].Employee.FirstName + " " + FilterdDates[ii].Employee.LastName;
+                Th1.innerHTML = FilterdDates[ii].StartTime;
+                Th2.innerHTML = FilterdDates[ii].EndTime;
+                Th3.appendChild(x);
             }
         }
         console.log(FilterdDates.length);
     }
 </script>
 
-<p id="lemo">exempel tid</p>
+<p></p>
 
 
 
-<h4>Available</h4>
-<div id="AvailableDiv"></div>
-<ul id="myUL">
-    <!--@foreach (var x in ViewBag.CalendarDataList)
-        {
-            if (x.Employee == null)
-            {
-                <li>
-                    @x.Id;
-                    @x.StartTime;
-                    @x.EndTime;
-                </li>
-            }
 
-        }-->
-</ul>
-<h4>Booked</h4>
-<div id="BookedDiv"></div>
-<ul>
-    <!--   @foreach (var x in ViewBag.CalendarDataList)
-    {
-        if (x.Employee != null)
-        {
+<div id="AvailableDiv" class="col-sm-5" style="border-radius:5px; background-color:#e3e3e3;">
+    <h4>Available</h4>
+    <table id="ATable" style="margin-bottom:15px;"></table>
+ </div>
+    
+<div class="col-sm-1"></div>
 
-            <li>
-                @x.Employee.FirstName;
-                @x.Id;
-                @x.StartTime;
-                @x.EndTime;
-            </li>
-
-        }
-    }-->
-</ul>
+<div id="BookedDiv" class="col-sm-6" style="border-radius:5px; background-color:#e3e3e3;">
+    <h4>Booked</h4>
+    <table id="BTable" style="margin-bottom:15px;"></table>
+</div>
 
 
