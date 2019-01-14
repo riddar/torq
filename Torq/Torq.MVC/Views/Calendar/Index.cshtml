@@ -17,11 +17,14 @@
         });*/
     </script>
     <style>
-        <style >
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 100%;
+        }
+
+        ul li:hover {
+            cursor: pointer;
         }
 
         td, th {
@@ -44,6 +47,7 @@
 
 <!--<input type="datetime" id="dateTimeField" />-->
 <select id="EmployeeSelector"><option>choose</option></select>
+<a href="Calendar/createSchedule">Create New Schedule</a>
 
 <script>
     $(document).ready(function () {
@@ -160,11 +164,6 @@
 
 
         }
-
-   /* function dateFilter2(MarkedDate)
-    {
-        console.log(MarkedDate);
-    } */
 
     function dateFilter2(selectedDate) {
         console.log("Selected Date: " + selectedDate);
