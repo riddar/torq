@@ -46,7 +46,7 @@
 </div>
 
 <!--<input type="datetime" id="dateTimeField" />-->
-<select id="EmployeeSelector"><option>choose</option></select>
+<select id="EmployeeSelector"><option>Employee</option></select>
 <a href="Calendar/createSchedule">Create New Schedule</a>
 
 <script>
@@ -118,7 +118,7 @@
 
             let x = document.createElement("a");
             let t = document.createTextNode("Edit");
-            x.setAttribute("href", "editschedule/" + FilterdDates[ii].Id);
+            x.setAttribute("href", "calendar/editschedule/" + FilterdDates[ii].Id);
             x.appendChild(t);
 
             if (FilterdDates[ii].Employee === null) {
@@ -210,7 +210,7 @@
            
             let x = document.createElement("a");
             let t = document.createTextNode("Edit");
-            x.setAttribute("href", "editschedule/" + FilterdDates[ii].Id);
+            x.setAttribute("href", "calendar/editschedule/" + FilterdDates[ii].Id);
             x.appendChild(t);
 
             if (FilterdDates[ii].Employee === null) {

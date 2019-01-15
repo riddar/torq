@@ -95,7 +95,7 @@ namespace Torq.MVC.Controllers
                 db.CreateSchedule(schedule);
             }
 
-            return Redirect("~/calendar/index");
+            return Redirect("~");
         }
 
         [HttpGet]
@@ -142,7 +142,7 @@ namespace Torq.MVC.Controllers
 
                 //   }
             }
-            return Redirect("~/calendar/index");
+            return Redirect("~");
         }
 
         public ActionResult CreateEmployee()
@@ -158,7 +158,7 @@ namespace Torq.MVC.Controllers
             {
                 edb.CreateEmployeeAsync(employee);
 
-                return Redirect("~/calendar/index");
+                return Redirect("~");
             }
         }
 
@@ -253,7 +253,7 @@ namespace Torq.MVC.Controllers
                 var x = db.GetScheduleById(Id);
                 db.RemoveSchedule(x);
             }
-            return Redirect("~/calendar/index");
+            return Redirect("~");
         }
     }
 
