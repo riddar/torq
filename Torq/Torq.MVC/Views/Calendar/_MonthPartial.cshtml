@@ -12,11 +12,33 @@
         d.setDate(1);
         localStorage.setItem('ViewingDate', d);
         console.log("In the partial!");
+        ScrollFunc(0);
     })
 
     function calendarLiFunc(event) {
         console.log(event.target.innerHTML);
         console.log(localStorage.getItem('ChoosenEmployee'))
+        
+
+
+        let month = document.getElementById('MonthDisplayer').innerHTML;
+        //
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+
+        let numMonth =monthNames.indexOf(month)+1;
+        //
+        numMonth < 10 ? numMonth = "0" + numMonth : numMonth = numMonth;
+        console.log("0date" + numMonth);
+
+        let day = event.target.innerHTML;
+        day < 10 ? day = "0" + day : day = day;
+
+        let year = document.getElementById('YearDisplayer').innerHTML;
+        let dateFormat = year + "-" + numMonth + "-" +  day;
+        console.log(dateFormat);
+
+        dateFilter2(dateFormat);
     }
 
     function forwFunc()
@@ -79,14 +101,21 @@
         }
 
 
-        for (i = 1; i <= daything; i++)
-        {
-           
+        for (i = 1; i <= daything; i++) {
+
+
+
+
             var Li = document.createElement('li');
+            var zz = 0;
+
+           
+            
+
             Li.innerHTML = i;
             Li.className = "CalendarLi";
             days.appendChild(Li);
-        }
+             }
         $('.CalendarLi').on('click', calendarLiFunc);
 
     }
@@ -154,7 +183,9 @@
         }
         for (int i = 1; i <= DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month); i++)
         {
+           
             <li>@i</li>
+            
         }
     }
 
